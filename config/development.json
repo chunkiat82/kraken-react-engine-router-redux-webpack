@@ -1,0 +1,50 @@
+{
+    "express": {
+        "view engine": "js",
+        "view": "require:react-engine/lib/expressView",
+        "view cache": false,
+        "views": "path:./src/public/views"
+    },
+
+    "view engines": {
+        "js": {
+            "module": "react-engine/lib/server",
+            "renderer": {
+                "method": "create",
+                "arguments": [{
+                    "routes": "require:./src/routes/react.js",
+                    "routesFilePath": "path:./src/routes/react.js"
+                }]
+            }
+        }
+    },
+
+    "middleware": {
+
+        "devtools": {
+            "enabled": true,
+            "priority": 35,
+            "module": {
+                "name": "kraken-devtools",
+                "arguments": [
+                    "path:./src/public",
+                    "path:./.build", {
+                        "copier": {
+                            "module": "kraken-devtools/plugins/copier",
+                            "files": "/favicon.ico"
+                        }
+                    }
+                ]
+            }
+        },
+
+        "router": {
+            "priority": 100,
+            "module": {
+                "arguments": [{
+                    "directory": "path:./src/controllers"
+                }]
+            }
+        }
+    }
+}

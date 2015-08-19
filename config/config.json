@@ -1,0 +1,43 @@
+{
+  "express": {
+    "view engine": "js",
+    "view": "require:react-engine/lib/expressView",
+    "view cache": false,
+    "views": "path:./.dist/public/views"
+  },
+
+  "view engines": {
+      "js": {
+          "module": "react-engine/lib/server",
+          "renderer": {
+            "method": "create",
+              "arguments": [{
+                  "routes": "require:./.dist/routes/react.js",
+                  "routesFilePath": "path:./.dist/routes/react.js"
+              }]
+          }
+      }
+  },
+
+  "middleware": {
+  
+    "static": {
+      "enabled": true,
+      "priority": 40,
+      "name": "serve-static",
+      "module": {
+        "arguments": [ "path:./.build" ]
+      }
+    },
+
+    "appsec": {
+      "enabled": false
+    },
+
+    "router": {
+      "module": {
+        "arguments": [{"directory": "path:./.dist/controllers"}]
+      }
+    }
+  }
+}
