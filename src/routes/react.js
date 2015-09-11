@@ -18,8 +18,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var App = require('../public/views/app.jsx');
-var Account = require('../public/views/account.jsx');
+var App = require('../../public/views/app.jsx');
+var Account = require('../../public/views/account.jsx');
 
 var routes = module.exports = (
     <Router.Route path='/' handler={App}>

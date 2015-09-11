@@ -13,8 +13,8 @@
           "renderer": {
             "method": "create",
               "arguments": [{
-                  "routes": "require:./routes/react.jsx",
-                  "routesFilePath": "path:./routes/react.jsx"
+                  "routes": "require:./.dist/routes/react.js",
+                  "routesFilePath": "path:./.dist/routes/react.js"
               }]
           }
       }
@@ -28,7 +28,7 @@
     },
     "router": {
       "module": {
-        "arguments": [{"directory": "path:./src/controllers"}]
+        "arguments": [{"directory": "path:./.dist/controllers"}]
       }
     }
   }
