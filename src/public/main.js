@@ -21,7 +21,7 @@ var Client = require('react-engine/lib/client');
 // Include all view files. Browerify doesn't do
 // this automatically as it can only operate on
 // static require statements.
-require('./views/**/*.jsx', {glob: true});
+require('./views/**/*.js', {glob: true});
 
 // boot options
 var options = {

@@ -17,7 +17,6 @@
 
 var express = require('express');
 var kraken = require('kraken-js');
-var nodeJSX = require('node-jsx');
 
 var options, app;
 
@@ -42,9 +41,7 @@ options = {
 //     extension: '.jsx'
 // });
 
-require('babel/register')({
-    extensions: [".jsx"]
-})
+require('babel/register')
 
 app = module.exports = express();
 app.use(kraken(options));
