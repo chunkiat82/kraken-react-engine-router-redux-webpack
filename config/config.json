@@ -1,14 +1,14 @@
 
 {
   "express": {
-    "view engine": "jsx",
+    "view engine": "js",
     "view": "require:react-engine/lib/expressView",
     "view cache": false,
-    "views": "path:./public/views"
+    "views": "path:./.dist/public/views"
   },
 
   "view engines": {
-      "jsx": {
+      "js": {
           "module": "react-engine/lib/server",
           "renderer": {
             "method": "create",

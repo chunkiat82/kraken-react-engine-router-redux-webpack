@@ -9,7 +9,7 @@
             "module": {
                 "name": "kraken-devtools",
                 "arguments": [
-                    "path:./public",
+                    "path:./.dist/public",
                     "path:./.build",
                     {   
                         "copier": {

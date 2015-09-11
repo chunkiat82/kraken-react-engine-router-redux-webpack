@@ -15,7 +15,7 @@
 
 'use strict';
 
-var Layout = require('./layout.jsx');
+var Layout = require('./layout.js');
 var React = require('react');
 var Router = require('react-router');
 

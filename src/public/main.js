@@ -15,26 +15,24 @@
 
 'use strict';
 
-var Layout = require('./layout.jsx');
-var React = require('react');
+var Routes = require('../routes/react.js');
+var Client = require('react-engine/lib/client');
 
-module.exports = React.createClass({
+// Include all view files. Browerify doesn't do
+// this automatically as it can only operate on
+// static require statements.
+require('./views/**/*.jsx', {glob: true});
 
-    onButtonClick: function() {
-        alert('I was rendered on server side but I am clickable because of client mounting!');
-    },
-
-    render: function render() {
-
-        return (
-            <Layout {...this.props}>
-                <div id='index'>
-                    <h1>Hello {this.props.name}!</h1>
-                    <button onClick={this.onButtonClick}>Click Me</button>
-                    <br/>
-                    <a href='/'>Click to go to an react-router rendered view</a>
-                </div>
-            </Layout>
-        );
+// boot options
+var options = {
+    routes: Routes,
+    // supply a function that can be called
+    // to resolve the file that was rendered.
+    viewResolver: function(viewName) {
+        return require('./views/' + viewName);
     }
+};
+
+document.addEventListener('DOMContentLoaded', function onLoad() {
+    Client.boot(options);
 });
