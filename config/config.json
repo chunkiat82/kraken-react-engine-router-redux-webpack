@@ -28,7 +28,7 @@
     },
     "router": {
       "module": {
-        "arguments": [{"directory": "path:./controllers"}]
+        "arguments": [{"directory": "path:./src/controllers"}]
       }
     }
   }
