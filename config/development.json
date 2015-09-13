@@ -1,23 +1,55 @@
 {
-    
+    "express": {
+        "view engine": "js",
+        "view": "require:react-engine/lib/expressView",
+        "view cache": false,
+        "views": "path:./src/public/views"
+    },
+
+    "view engines": {
+        "js": {
+            "module": "react-engine/lib/server",
+            "renderer": {
+                "method": "create",
+                "arguments": [{
+                    "routes": "require:./src/routes/react.js",
+                    "routesFilePath": "path:./src/routes/react.js"
+                }]
+            }
+        }
+    },
 
     "middleware": {
 
+        "static": {
+            "module": {
+                "arguments": ["path:./.build"]
+            }
+        },
         "devtools": {
             "enabled": true,
             "priority": 35,
             "module": {
                 "name": "kraken-devtools",
                 "arguments": [
-                    "path:./.dist/public",
-                    "path:./.build",
-                    {   
-                        "copier": {
-                            "module": "kraken-devtools/plugins/copier",
-                            "files": "**/*"
+                    "path:./src/public",
+                    "path:./.build", {
+                        "browserify": {
+                            "module": "kraken-devtools-browserify",
+                            "files": "/bundle.js",
+                            "transform": ["reactify", "require-globify"]
                         }
                     }
                 ]
+            }
+        },
+
+
+        "router": {
+            "module": {
+                "arguments": [{
+                    "directory": "path:./src/controllers"
+                }]
             }
         }
     }

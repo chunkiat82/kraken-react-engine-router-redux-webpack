@@ -29,6 +29,7 @@
     "grunt-copy-to": "0.0.10",
     "grunt-localizr": "^0.1.4",
     "grunt-mocha-cli": "^1.13.0",
+    "kraken-devtools-browserify": "0.0.3",
     "mocha": "^1.18.0",
     "reactify": "^1.1.0",
     "require-globify": "^1.1.0",

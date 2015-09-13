@@ -21,7 +21,7 @@ var React = require('react');
 module.exports = React.createClass({
 
     onButtonClick: function() {
-        alert('I was rendered on server side but I am clickable because of client mounting!');
+        alert('I was rendered on server side but I am clickable because of client mounting and auto compiling!');
     },
 
     render: function render() {

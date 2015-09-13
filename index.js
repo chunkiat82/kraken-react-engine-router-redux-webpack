@@ -35,13 +35,9 @@ options = {
     }
 };
 
-// install node-jsx, so that we
-// can require `.jsx` files in node.
-// nodeJSX.install({
-//     extension: '.jsx'
-// });
-
-require('babel/register')
+if (process.env.NODE_ENV == 'dev'){
+	require('babel/register')	
+}
 
 app = module.exports = express();
 app.use(kraken(options));
