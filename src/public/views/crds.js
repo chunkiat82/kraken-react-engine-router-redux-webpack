@@ -43,6 +43,9 @@ module.exports = React.createClass({
         this.props.saveValues('crds',data);
         this.props.nextStep();
     },
+    componentDidMount: function(){
+        this._onChange();
+    },
     render: function() {
         var inputProps = {
             type:'text',
@@ -56,7 +59,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-                            <h1>Configure Task</h1><br/>                 
+                            <center><h1>Configure Task</h1><br/></center>                 
                         </div>
                         <div className="col-md-3"></div>
                     </div>

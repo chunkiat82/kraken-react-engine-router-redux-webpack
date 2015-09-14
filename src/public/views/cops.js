@@ -62,7 +62,7 @@ module.exports = React.createClass({
 		var fieldKey = 'fields[' + fieldIndex + ']';
 		console.log("in addNewfield");
 		console.log(fieldIndex);		
-		var fieldEle = React.createElement(CopsFields, { fieldKey:fieldKey}, null);		
+		var fieldEle = React.createElement(CopsFields, { key:fieldKey, fieldKey:fieldKey}, null);		
 		this.setState(function(prev) {
 		  return {
 			undoCache: prev.undoCache.push(this.state.addedFields),
@@ -70,97 +70,88 @@ module.exports = React.createClass({
 		  };
 		});
 	},
-
+	componentDidMount: function(){
+        this._onChange();
+    },
 	render: function() {
 		var serialization = JSON.stringify(this.state.serialization.response, null, 2);
 
 		return (
 		<form className="fieldsForm" onSubmit={this.onSubmit} ref='myCopsForm'>
 		<div className="row">
+            <div className="col-md-3"></div>
+            <div className="col-md-6">
+                <center><h1>Configure Elements</h1><br/></center>
+            </div>
+            <div className="col-md-3"></div>
+        </div>
+		<div className="row">
 
 			<div className="col-md-1"></div>
 			<div className="col-md-5">
-				<div id="decisionInfoContainer" >	
+				<Panel header='Define decision details'>    
 					<div className="row">
 						<div className="col-md-1"></div>
 						<div className="col-md-10">
-							<h1></h1><br/>
-							<Panel header='ADD DECISION DETAILS AND FIELDS...'>    
-								<div className="row">
-									<div className="col-md-1"></div>
-									<div className="col-md-10">
 
-										<Input onChange={this._onChange} type="select" label="Decision code" placeholder="NEED_MORE_DATA" name="decisionCode">
-										  <option value="ALLOW">ALLOW</option>
-										  <option value="NEED_MORE_DATA">NEED_MORE_DATA</option>
-										  <option value="DENY">DENY</option>
-										</Input>
-										
-									</div>
-									<div className="col-md-1"></div>
-								</div>
-
-								<div className="row">
-									<div className="col-md-1"></div>
-									<div className="col-md-10">
-										<Input onChange={this._onChange} type="select" label="Retry count" placeholder="select" name="retryCount">
-										  <option value="1">1</option>
-										  <option value="2">2</option>
-										  <option value="3">3</option>
-										</Input>                        
-									</div>
-									<div className="col-md-1"></div>
-								</div>
-
-								<div className="row">
-									<div className="col-md-1"></div>
-									<div className="col-md-10">
-										<Input onChange={this._onChange} type="select" label="Verification status" placeholder="select" name="verificationStatus">
-										  <option value="VERIFICATION_FAILURE">VERIFICATION_FAILURE</option>
-										  <option value="VERIFICATION_SUCCESS">VERIFICATION_SUCCESS</option>
-										</Input>                        
-									</div>
-									<div className="col-md-1"></div>
-								</div>
-				   
-							 </Panel>                
+							<Input onChange={this._onChange} type="select" label="Decision code" placeholder="NEED_MORE_DATA" name="decisionCode">
+							  <option value="ALLOW">ALLOW</option>
+							  <option value="NEED_MORE_DATA">NEED_MORE_DATA</option>
+							  <option value="DENY">DENY</option>
+							</Input>
+							
 						</div>
-						<div className="col-md-3"></div>
+						<div className="col-md-1"></div>
 					</div>
-					
-					
-				</div>
 
-				<div id="fieldsContainer">  
 					<div className="row">
 						<div className="col-md-1"></div>
 						<div className="col-md-10">
-							<h1></h1><br/>
-							<Panel header='Add Fields details'>  
-								<div className="row">
-									<div className="col-md-1"></div>
-									<div className="col-md-10">
-										<Button onClick={this.addNewfield} type='button'  bsSize="small">Add a new field</Button>
-										<Button onClick={this.undo} type='button' disabled={!this.state.addedFields.size}  bsSize="small">Undo</Button>
-										{this.state.addedFields.map(function(field) {
-											return field;
-										})}                   
-									</div>
-									<div className="col-md-1"></div>
-								</div>
-								
-								<div className="row">
-									<div className="col-md-1"></div>
-									<div className="col-md-10">				                      
-										<Button type='submit' bsStyle="primary" bsSize="large" block>Next</Button>
-									</div>
-									<div className="col-md-1"></div>
-								</div>
-							</Panel>                
+							<Input onChange={this._onChange} type="select" label="Retry count" placeholder="select" name="retryCount">
+							  <option value="1">1</option>
+							  <option value="2">2</option>
+							  <option value="3">3</option>
+							</Input>                        
 						</div>
 						<div className="col-md-1"></div>
-					</div>                
-				</div>
+					</div>
+
+					<div className="row">
+						<div className="col-md-1"></div>
+						<div className="col-md-10">
+							<Input onChange={this._onChange} type="select" label="Verification status" placeholder="select" name="verificationStatus">
+							  <option value="VERIFICATION_FAILURE">VERIFICATION_FAILURE</option>
+							  <option value="VERIFICATION_SUCCESS">VERIFICATION_SUCCESS</option>
+							</Input>                        
+						</div>
+						<div className="col-md-1"></div>
+					</div>
+	   
+				 </Panel>                
+				
+				<Panel header='Define field elements'>  
+					<div className="row">
+						<div className="col-md-1"></div>
+						<div className="col-md-10">
+							<Button onClick={this.addNewfield} type='button'  bsSize="small">Add a new field</Button>
+							<Button onClick={this.undo} type='button' disabled={!this.state.addedFields.size}  bsSize="small">Undo</Button>
+							{this.state.addedFields.map(function(field) {
+								return field;
+							})}                   
+						</div>
+						<div className="col-md-1"></div>
+					</div>
+												
+				</Panel>                
+					
+				<div className="row">
+                    <div className="col-md-6">
+                        <Button onClick={this.props.prevStep} bsStyle="primary" bsSize="large" block>Previous</Button>
+                    </div>
+                    <div className="col-md-6">
+                        <Button type='submit' bsStyle="primary" bsSize="large" block>Next</Button>
+                    </div>
+                </div> 
 
 			</div>
 			<div className="col-md-5">

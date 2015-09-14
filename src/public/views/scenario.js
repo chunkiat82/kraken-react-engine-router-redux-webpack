@@ -38,7 +38,7 @@ export default class Sceneario extends React.Component {
                 <Row className="show-grid">
                     <Col xs={1} md={3}></Col>
                     <Col xs={10} md={6}>
-                        <h1>Describe Scenario</h1>
+                        <center><h1>Describe Scenario</h1></center>
                     </Col>
                     <Col xs={1} md={3}></Col>
                 </Row>
