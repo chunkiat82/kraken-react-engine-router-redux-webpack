@@ -8,6 +8,7 @@
     "test": "grunt test"
   },
   "dependencies": {
+    "babel": "^5.8.23",
     "engine-munger": "^0.2.0",
     "express": "^4.3.0",
     "kraken-devtools": "^1.0.0",
@@ -15,6 +16,7 @@
     "localizr": "^0.1.6",
     "node-jsx": "^0.13.3",
     "react": "^0.13.3",
+    "react-bootstrap": "^0.25.2",
     "react-engine": "^2.0.0",
     "react-router": "^0.13.3"
   },
