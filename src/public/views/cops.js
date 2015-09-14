@@ -50,14 +50,13 @@ module.exports = React.createClass({
 		var form = this.refs.myCopsForm.getDOMNode();
         var $form = $(form);
         var data = serialize(form, { hash: true });
-
         this.setState({
         	serializedVal : data
 		  }, self.updateSerialization);
 	  },
 	  addNewfield: function() {
 		var fieldIndex = this.state.addedFields.size;
-		var fieldKey = 'people[' + fieldIndex + ']';
+		var fieldKey = 'data_element[' + fieldIndex + ']';
 		console.log("in addNewfield");
 		console.log(fieldIndex);
 		var fieldEle = (
@@ -145,7 +144,7 @@ module.exports = React.createClass({
 			                    <div className="col-md-3"></div>
 			                    <div className="col-md-6">
 
-			                        <Input type="select" label="Decision code" placeholder="NEED_MORE_DATA">
+			                        <Input type="select" label="Decision code" placeholder="NEED_MORE_DATA" name="decisionCode">
 			                          <option value="cip">ALLOW</option>
 			                          <option value="kyc">NEED_MORE_DATA</option>
 			                          <option value="kyc">DENY</option>
@@ -158,7 +157,7 @@ module.exports = React.createClass({
 			                <div className="row">
 			                    <div className="col-md-3"></div>
 			                    <div className="col-md-6">
-			                        <Input type="select" label="Retry count" placeholder="select">
+			                        <Input type="select" label="Retry count" placeholder="select" name="retryCount">
 			                          <option value="1">1</option>
 			                          <option value="2">2</option>
 			                          <option value="3">3</option>
@@ -170,7 +169,7 @@ module.exports = React.createClass({
 			                <div className="row">
 			                    <div className="col-md-3"></div>
 			                    <div className="col-md-6">
-			                        <Input type="select" label="Verification status" placeholder="select">
+			                        <Input type="select" label="Verification status" placeholder="select" name="verificationStatus">
 			                          <option value="VERIFICATION_FAILURE">VERIFICATION_FAILURE</option>
 			                          <option value="VERIFICATION_SUCCESS">VERIFICATION_SUCCESS</option>
 			                        </Input>                        
@@ -195,8 +194,8 @@ module.exports = React.createClass({
 			            	<div className="row">
 			                    <div className="col-md-1"></div>
 			                    <div className="col-md-10">
-			                        <button onClick={this.addNewfield} type='button'>Add a new field</button>
-								  	<button onClick={this.undo} type='button' disabled={!this.state.addedFields.size}>Undo</button>
+			                        <Button onClick={this.addNewfield} type='button'  bsSize="small">Add a new field</Button>
+								  	<Button onClick={this.undo} type='button' disabled={!this.state.addedFields.size}  bsSize="small">Undo</Button>
 								  	{this.state.addedFields.map(function(field) {
 						                return field;
 						            })}                   
