@@ -22,10 +22,12 @@ var App = require('../public/views/app.js');
 var Account = require('../public/views/account.js');
 var Scenario = require('../public/views/scenario.js');
 var Tasks = require('../public/views/crds.js');
+var Cops = require('../public/views/cops.js');
 
 var routes = module.exports = (
     <Router.Route path='/' handler={App}>
     	<Router.DefaultRoute name='scenario' handler={Scenario} />
     	<Router.Route name='crds' path='crds' handler={Tasks} />
+	    <Router.Route path='cops' name='cops' handler={Cops}/>
     </Router.Route>
 );
