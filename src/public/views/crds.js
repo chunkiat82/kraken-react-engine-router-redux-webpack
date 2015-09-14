@@ -29,6 +29,7 @@ module.exports = React.createClass({
         var form = this.refs.crdsForm.getDOMNode();
         var $form = $(form);
         var data = serialize(form, { hash: true });
+        console.log("in updateSerialization");
         console.log(JSON.stringify(data,null,'\t'));
     },
     onSubmit: function(event) {
@@ -36,12 +37,13 @@ module.exports = React.createClass({
         console.log("in onSubmit");     
         event.preventDefault();
         var form = this.refs.crdsForm.getDOMNode();
-        console.log(JSON.stringify(form,null,"\t"));  
         var $form = $(form);
-        var data = serialize(form, { hash: true });        
+        var data = serialize(form, { hash: true });
+        console.log("in onSubmit");
+        console.log(JSON.stringify(data,null,"\t"));        
         this.setState({
           serialization: data
-        });
+        },this.updateSerialization);
     },
     render: function() {
         var inputProps = {
@@ -49,10 +51,6 @@ module.exports = React.createClass({
             className: 'vx_form-control',
             style: STYLES.input
         };
-
-        function handleSubmit() {
-          alert('Submit !!');
-        }
 
         return (
             <div id="taskContainer" >
@@ -69,13 +67,10 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-
-                            <Input type="select" id="customerType" name="customerType">
-                              <option value="select">Select customer type</option>
+                            <Input type="select" name="customerType">
                               <option value="person_party">PERSON_PARTY</option>
                               <option value="business_party">BUSINESS_PARTY</option>
-                            </Input>
-                            
+                            </Input>                            
                         </div>
                         <div className="col-md-3"></div>
                     </div>
@@ -83,12 +78,9 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-
-                            <Input type="select" id="level" name="level">
-                              <option value="select">Select level</option>
+                            <Input type="select" name="level">
                               <option value="cip">CIP</option>
-                            </Input>
-                            
+                            </Input>                            
                         </div>
                         <div className="col-md-3"></div>
                     </div>
@@ -96,14 +88,11 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-
-                            <Input type="select" id="customerRole" name="customerRole">
-                              <option value="select">Select role</option>
+                            <Input type="select" name="customerRole">
                               <option value="paypal_primary_user">PAYPAL_PRIMARY_USER</option>
                               <option value="director">DIRECTOR</option>
                               <option value="beneficial_owner">BENEFICIAL_OWNER</option>
-                            </Input>
-                            
+                            </Input>                            
                         </div>
                         <div className="col-md-3"></div>
                     </div>
@@ -115,22 +104,17 @@ module.exports = React.createClass({
                         </div>
                         <div className="col-md-3"></div>
                     </div>
-
                     
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-
-                            <Input type="select" id="criteria" name="criteria">
-                              <option value="select">Select criteria</option>
+                            <Input type="select" name="criteria">
                               <option value="third_party_verification">THIRD_PARTY_VERIFICATION</option>
                               <option value="proof_of_tax_id">PROOF_OF_TAX_ID</option>
-                            </Input>
-                            
+                            </Input>                            
                         </div>
                         <div className="col-md-3"></div>
                     </div>
-
 
                     <div className="row">
                         <div className="col-md-3"></div>
