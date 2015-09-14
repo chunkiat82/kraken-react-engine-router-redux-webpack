@@ -145,9 +145,9 @@ module.exports = React.createClass({
 			                    <div className="col-md-6">
 
 			                        <Input type="select" label="Decision code" placeholder="NEED_MORE_DATA" name="decisionCode">
-			                          <option value="cip">ALLOW</option>
-			                          <option value="kyc">NEED_MORE_DATA</option>
-			                          <option value="kyc">DENY</option>
+			                          <option value="ALLOW">ALLOW</option>
+			                          <option value="NEED_MORE_DATA">NEED_MORE_DATA</option>
+			                          <option value="DENY">DENY</option>
 			                        </Input>
 			                        
 			                    </div>
