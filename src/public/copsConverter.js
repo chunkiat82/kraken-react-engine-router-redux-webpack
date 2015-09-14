@@ -17,7 +17,7 @@ function convert(userInput) {
         coreProperties.push(dataEle);
     }
     console.log(JSON.stringify(coreProperties,null,'\t'));
-    userInput.coreProperties = JSON.stringify(coreProperties);
+    userInput.coreProperties = coreProperties;
     console.log("goign to compile...");
     var theTemplate = Handlebars.compile (JSON.stringify(copsTemplate));
     console.log("goign to replace...");

@@ -30,7 +30,6 @@ module.exports = React.createClass({
 					<title>
 						{this.props.title}
 					</title>
-					<link rel="stylesheet" href="app.css"/>
 				</head>	
 				<body>
 					<Header/>
