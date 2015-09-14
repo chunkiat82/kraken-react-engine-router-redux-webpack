@@ -59,7 +59,7 @@ module.exports = React.createClass({
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
                             <h1>Please configure your task..</h1><br/>
-                            <h4>Level config</h4>                      
+                            <h3>Level config</h3>                      
                         </div>
                         <div className="col-md-3"></div>
                     </div>
@@ -67,7 +67,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-                            <Input type="select" name="customerType">
+                            <Input type="select" name="customerType" label="Customer type">
                               <option value="person_party">PERSON_PARTY</option>
                               <option value="business_party">BUSINESS_PARTY</option>
                             </Input>                            
@@ -78,7 +78,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-                            <Input type="select" name="level">
+                            <Input type="select" name="level" label="Level">
                               <option value="cip">CIP</option>
                             </Input>                            
                         </div>
@@ -88,7 +88,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-                            <Input type="select" name="customerRole">
+                            <Input type="select" name="customerRole" label="Customer role">
                               <option value="paypal_primary_user">PAYPAL_PRIMARY_USER</option>
                               <option value="director">DIRECTOR</option>
                               <option value="beneficial_owner">BENEFICIAL_OWNER</option>
@@ -100,7 +100,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-                            <h4>Criteria config</h4>                     
+                            <h3>Criteria config</h3>                     
                         </div>
                         <div className="col-md-3"></div>
                     </div>
@@ -108,7 +108,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-                            <Input type="select" name="criteria">
+                            <Input type="select" name="criteria" label="Criteria">
                               <option value="third_party_verification">THIRD_PARTY_VERIFICATION</option>
                               <option value="proof_of_tax_id">PROOF_OF_TAX_ID</option>
                             </Input>                            
