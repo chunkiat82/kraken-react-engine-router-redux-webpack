@@ -25,14 +25,14 @@ module.exports = React.createClass({
 				<div className="container-fluid">
 
 					<div className="navbar-header">
-						<a className="navbar-brand" href="#">WebSiteName</a>
+						<a className="navbar-brand" href="#">HackRisk2015</a>
 					</div>
 
 					<div>
 					  <ul className="nav navbar-nav">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Wallet</a></li> 
-						<li><a href="#">Shop</a></li> 
+					  	<li><a href="#">Scenario</a></li> 
+						<li><a href="#">COPS</a></li>
+						<li><a href="#">CRDS</a></li> 						
 					  </ul>
 					</div>
 
