@@ -5,7 +5,7 @@ var React = require('react'),
     Button = require('react-bootstrap').Button,
     Input = require('react-bootstrap').Input;
 import serialize from 'form-serialize';
-import { Panel } from 'react-bootstrap';
+var Panel = require('react-bootstrap').Panel;
 
 var STYLES = {
     input:{
@@ -41,7 +41,6 @@ module.exports = React.createClass({
         event.preventDefault();
         var form = this.refs.crdsForm.getDOMNode();
         var $form = $(form);
-        var data = serialize(form, { hash: true });
         console.log("in onSubmit");
         console.log(JSON.stringify(data,null,"\t"));        
         this.setState({
@@ -56,78 +55,77 @@ module.exports = React.createClass({
         };
 
         return (
-            <div id="taskContainer" >
-                <form ref="crdsForm" onSubmit={this.onSubmit}>
+            
+            <form ref="crdsForm" onSubmit={this.onSubmit}>
+                <div id="taskContainer" >
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
-                            <h1>Please configure your task..</h1><br/>
-                            <h3>Level config</h3>                      
-                        </div>
-                        <div className="col-md-3"></div>
-                    </div>
-                    
-                    <div className="row">
-                        <div className="col-md-3"></div>
-                        <div className="col-md-6">
-                            <Input type="select" name="customerType" label="Customer type">
-                              <option value="person_party">PERSON_PARTY</option>
-                              <option value="business_party">BUSINESS_PARTY</option>
-                            </Input>                            
-                        </div>
-                        <div className="col-md-3"></div>
-                    </div>
+                                <div className="row">
+                                    <div className="col-md-3"></div>
+                                    <div className="col-md-6">
+                                        <h1>Please configure your task..</h1><br/>                 
+                                    </div>
+                                    <div className="col-md-3"></div>
+                                </div>
+                                <Panel header='Level configuration'>
+                                    <div className="row">
+                                        <div className="col-md-3"></div>
+                                        <div className="col-md-6">
+                                            <Input type="select" name="customerType" label="Customer type">
+                                              <option value="person_party">PERSON_PARTY</option>
+                                              <option value="business_party">BUSINESS_PARTY</option>
+                                            </Input>                            
+                                        </div>
+                                        <div className="col-md-3"></div>
+                                    </div>
 
-                    <div className="row">
-                        <div className="col-md-3"></div>
-                        <div className="col-md-6">
-                            <Input type="select" name="level" label="Level">
-                              <option value="cip">CIP</option>
-                            </Input>                            
-                        </div>
-                        <div className="col-md-3"></div>
-                    </div>
+                                    <div className="row">
+                                        <div className="col-md-3"></div>
+                                        <div className="col-md-6">
+                                            <Input type="select" name="level" label="Level">
+                                              <option value="cip">CIP</option>
+                                            </Input>                            
+                                        </div>
+                                        <div className="col-md-3"></div>
+                                    </div>
 
-                    <div className="row">
-                        <div className="col-md-3"></div>
-                        <div className="col-md-6">
-                            <Input type="select" name="customerRole" label="Customer role">
-                              <option value="paypal_primary_user">PAYPAL_PRIMARY_USER</option>
-                              <option value="director">DIRECTOR</option>
-                              <option value="beneficial_owner">BENEFICIAL_OWNER</option>
-                            </Input>                            
+                                    <div className="row">
+                                        <div className="col-md-3"></div>
+                                        <div className="col-md-6">
+                                            <Input type="select" name="customerRole" label="Customer role">
+                                              <option value="paypal_primary_user">PAYPAL_PRIMARY_USER</option>
+                                              <option value="director">DIRECTOR</option>
+                                              <option value="beneficial_owner">BENEFICIAL_OWNER</option>
+                                            </Input>                            
+                                        </div>
+                                        <div className="col-md-3"></div>
+                                    </div>
+                                </Panel>
+                                <Panel header='Criteria configuration'>                        
+                                    <div className="row">
+                                        <div className="col-md-3"></div>
+                                        <div className="col-md-6">
+                                            <Input type="select" name="criteria" label="Criteria">
+                                              <option value="third_party_verification">THIRD_PARTY_VERIFICATION</option>
+                                              <option value="proof_of_tax_id">PROOF_OF_TAX_ID</option>
+                                            </Input>                            
+                                        </div>
+                                        <div className="col-md-3"></div>
+                                    </div>
+                                </Panel>
+                                <div className="row">
+                                    <div className="col-md-3"></div>
+                                    <div className="col-md-6">
+                                        <Button type='submit' bsStyle="primary" bsSize="small" style={STYLES.nextBtn}>Next</Button>                        
+                                    </div>
+                                    <div className="col-md-3"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-md-3"></div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-md-3"></div>
-                        <div className="col-md-6">
-                            <h3>Criteria config</h3>                     
-                        </div>
-                        <div className="col-md-3"></div>
-                    </div>
-                    
-                    <div className="row">
-                        <div className="col-md-3"></div>
-                        <div className="col-md-6">
-                            <Input type="select" name="criteria" label="Criteria">
-                              <option value="third_party_verification">THIRD_PARTY_VERIFICATION</option>
-                              <option value="proof_of_tax_id">PROOF_OF_TAX_ID</option>
-                            </Input>                            
-                        </div>
-                        <div className="col-md-3"></div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-md-3"></div>
-                        <div className="col-md-6">
-                            <Button type='submit' bsStyle="primary" bsSize="small" style={STYLES.nextBtn}>Next</Button>                        
-                        </div>
-                        <div className="col-md-3"></div>
-                    </div>
+                    </div> 
                 </form>
-            </div>           
+                      
         );
     }
 });
