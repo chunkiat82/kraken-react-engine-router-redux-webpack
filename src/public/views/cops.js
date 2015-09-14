@@ -5,6 +5,8 @@ var React = require('react'),
 	Input = require('react-bootstrap').Input;
 var Immutable = require('immutable');
 var Panel = require('react-bootstrap').Panel;
+import serialize from 'form-serialize';
+
 var STYLES = {
 	input:{
 		marginTop:'1em'
@@ -19,7 +21,8 @@ module.exports = React.createClass({
 	  getInitialState: function() {
 		return {
 		  addedFields: Immutable.List(),
-		  undoCache: Immutable.List()
+		  undoCache: Immutable.List(),
+		  serializedVal: ''
 		};
 	  },
 	  undo: function() {
@@ -33,14 +36,24 @@ module.exports = React.createClass({
 	  },
 	  updateSerialization: function() {
 		var self = this;
-		console.log("in updateSerialization");		
+		console.log("in updateSerialization");
+		var form = this.refs.myCopsForm.getDOMNode();
+        var $form = $(form);
+        var data = serialize(form, { hash: true });
+		console.log(JSON.stringify(data,null,'\t'));
 	  },
+
 	  onSubmit: function(event) {
 		var self = this;
 		console.log("in onSubmit");		
 		event.preventDefault();
-		
+		var form = this.refs.myCopsForm.getDOMNode();
+        var $form = $(form);
+        var data = serialize(form, { hash: true });
 
+        this.setState({
+        	serializedVal : data
+		  }, self.updateSerialization);
 	  },
 	  addNewfield: function() {
 		var fieldIndex = this.state.addedFields.size;
@@ -121,10 +134,8 @@ module.exports = React.createClass({
 
 	  render: function() {
 		return (
-		<form className="fieldsForm" onSubmit={this.onSubmit}>
-			<input type="hidden" name="_csrf" value="{this.props._csrf}"/>
-			<div id="decisionInfoContainer" >
-				
+		<form className="fieldsForm" onSubmit={this.onSubmit} ref='myCopsForm'>
+			<div id="decisionInfoContainer" >				
                 <div className="row">
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
