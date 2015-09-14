@@ -18,6 +18,7 @@
 var React = require('react');
 var Footer = require('./footer.js');
 var Header = require('./header.js');
+
 module.exports = React.createClass({
 
 	render: function render() {
@@ -27,9 +28,10 @@ module.exports = React.createClass({
 				<head>
 					<meta charSet='utf-8' />
 					<title>
-			{this.props.title}
+						{this.props.title}
 					</title>
-				</head>
+					<link rel="stylesheet" href="app.css"/>
+				</head>	
 				<body>
 					<Header/>
 

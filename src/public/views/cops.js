@@ -156,8 +156,8 @@ module.exports = React.createClass({
 				            	
 				                <div className="row">
 				                    <div className="col-md-1"></div>
-				                    <div className="col-md-10">
-				                        <Button type='submit' bsStyle="primary" bsSize="small" style={STYLES.nextBtn}>Next</Button>                        
+				                    <div className="col-md-10">				                      
+				                        <Button type='submit' bsStyle="primary" bsSize="large" block>Next</Button>
 				                    </div>
 				                    <div className="col-md-1"></div>
 				                </div>
@@ -177,9 +177,7 @@ module.exports = React.createClass({
 
             </div>
             <div className="col-md-1"></div>
-        </div>	
-
-			
+        </div>
         </form>
 		  
 		);

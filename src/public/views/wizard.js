@@ -8,7 +8,8 @@ export default class Wizard extends React.Component {
         super();        
         this.state = {step : 1}
         this.saveValues = this.saveValues.bind(this);
-        this.nextStep = this.nextStep.bind(this);        
+        this.nextStep = this.nextStep.bind(this);
+        this.prevStep = this.prevStep.bind(this);
     }
 
     saveValues(stepName,fields) {
@@ -24,15 +25,22 @@ export default class Wizard extends React.Component {
         })
     }
 
+    prevStep() {
+        var self = this;     
+        this.setState({
+            step : self.state.step - 1
+        })
+    }
+
     render() {
         console.log(JSON.stringify(this.state));        
         switch(this.state.step) {
             case 1:
-                return <Scenario nextStep={this.nextStep} saveValues={this.saveValues} />            
+                return (<Scenario data={this.state.scenario || {}} prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />);
             case 2:
-                return <Crds nextStep={this.nextStep} saveValues={this.saveValues} />
+                return <Crds data={this.state.crds || {}}  prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
             case 3:
-                return <Cops nextStep={this.nextStep} saveValues={this.saveValues} />
+                return <Cops prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
         }
     }
 }

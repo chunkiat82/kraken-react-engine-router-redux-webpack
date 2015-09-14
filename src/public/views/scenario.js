@@ -10,22 +10,22 @@ export default class Sceneario extends React.Component {
     constructor() {
         super();        
         this.state = { serialization: "" }
-        this. _onSubmit = this. _onSubmit.bind(this);
+        this._onSubmit = this. _onSubmit.bind(this);
+        this._save = this._save.bind(this);
     }
 
 
     _onSubmit(event) {         
-        event.preventDefault();
+        event.preventDefault();        
+        this._save();
+        this.props.nextStep();
+    }
+
+    _save(event){
         var form = this.refs.myForm.getDOMNode();             
         var data = serialize(form, { hash: true });  
-        this.setState({serialization: data}, () => {
-            console.log(this.state.serialization);    
-        });
-
-        this.props.saveValues('scenario',data)
-        this.props.nextStep();
-        
-        
+        this.setState({serialization: data});
+        this.props.saveValues('scenario',data) 
     }
 
 
@@ -45,14 +45,14 @@ export default class Sceneario extends React.Component {
                 <Row className="show-grid">
                     <Col xs={1} md={3}></Col>
                     <Col xs={10} md={6}>
-                        <Input type="text" id='scenarioName' name="scenarioName" placeholder='Scenario Name' />
+                        <Input onChange={this._save} type="text" id='scenarioName' name="scenarioName" placeholder='Scenario Name' value={this.props.data.scenarioName} />
                     </Col>
                     <Col xs={1} md={3}></Col>
                 </Row>
                 <Row className="show-grid">
                     <Col xs={1} md={3}></Col>
                     <Col xs={10} md={6}>
-                        <Input type="textarea" name="scenarioDescription" placeholder='Scenario Description' />
+                        <Input onChange={this._save}type="textarea" name="scenarioDescription" placeholder='Scenario Description' value={this.props.data.scenarioDescription}/>
                     </Col>
                     <Col xs={1} md={3}></Col>
                 </Row>
