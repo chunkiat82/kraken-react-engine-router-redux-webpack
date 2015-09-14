@@ -25,7 +25,7 @@ module.exports = function browserify(grunt) {
             src: './.dist/public/bundle.js',
             dest: './.build/bundle.js',
             options: {
-                transform: ['reactify', 'require-globify']
+                transform: ['require-globify']
             }
             //,
 			//files: {

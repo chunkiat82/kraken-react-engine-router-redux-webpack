@@ -1,68 +1,42 @@
 'use strict';
 
-var Layout = require('./layout.js');
-var React = require('react'),
-    Button = require('react-bootstrap').Button,
-    Input = require('react-bootstrap').Input;
+import Layout from './layout.js';
+import React from 'react';
+import { Grid, Row, Col, Input, Button } from 'react-bootstrap';
 
-import { Panel } from 'react-bootstrap';
-
-var STYLES = {
-    input:{
-        marginTop:'1em'
-    },
-    nextBtn: {
-        marginTop: '2em',
-        width: '100%'
-    }
-};
-
-module.exports = React.createClass({
-
-    render: function() {
-         var inputProps = {
-                type:'text',
-                className: 'vx_form-control',
-                style: STYLES.input
-            };
-
-            function handleClick() {
-  alert('You have clicked on you');
-}
-
+export default class Sceneario extends React.Component {
+    render() { 
         return (
-            <div id="fieldsPane" onClick={ handleClick }>
-
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                        <h1> Please enter the Scenario name to start...</h1>                        
-
-                    </div>
-                    <div className="col-md-3"></div>
-                </div>
-
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-
-                        <Input {...inputProps} placeholder='Scenario Name' />
-                        
-                    </div>
-                    <div className="col-md-3"></div>
-                </div>
-
-
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                        <Button type='submit' bsStyle="primary" bsSize="small" style={STYLES.nextBtn}>Next</Button>                        
-                    </div>
-                    <div className="col-md-3"></div>
-                </div>
-            </div>
-
-           
+            <Grid>
+                <Row className="show-grid">
+                    <Col xs={1} md={3}></Col>
+                    <Col xs={10} md={6}>
+                        <h1>Please enter the Scenario name to start...</h1>
+                    </Col>
+                    <Col xs={1} md={3}></Col>
+                </Row>
+                <Row className="show-grid">
+                    <Col xs={1} md={3}></Col>
+                    <Col xs={10} md={6}>
+                        <Input type="text" name="scenarioName" placeholder='Scenario Name' />
+                    </Col>
+                    <Col xs={1} md={3}></Col>
+                </Row>
+                <Row className="show-grid">
+                    <Col xs={1} md={3}></Col>
+                    <Col xs={10} md={6}>
+                        <Input type="textarea" name="scenarioDescription" placeholder='Scenario Description' />
+                    </Col>
+                    <Col xs={1} md={3}></Col>
+                </Row>
+                <Row className="show-grid">   
+                    <Col xs={1} md={3}></Col>
+                    <Col xs={10} md={6}>
+                        <Button block type='submit' bsStyle="primary" bsSize="small">Next</Button>
+                    </Col>
+                    <Col xs={1} md={3}></Col>
+                </Row>
+            </Grid>
         );
     }
-});
+}

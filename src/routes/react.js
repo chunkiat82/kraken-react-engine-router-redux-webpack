@@ -19,7 +19,6 @@ var React = require('react');
 var Router = require('react-router');
 
 var App = require('../public/views/app.js');
-var Account = require('../public/views/account.js');
 var Scenario = require('../public/views/scenario.js');
 var Tasks = require('../public/views/crds.js');
 var Cops = require('../public/views/cops.js');
