@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "babel-core": "^5.8.24",
+    "babelify": "^6.3.0",
     "grunt": "^0.4.5",
     "grunt-babel": "^5.0.1",
     "grunt-browserify": "^2.1.4",

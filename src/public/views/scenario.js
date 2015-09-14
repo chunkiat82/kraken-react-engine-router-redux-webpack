@@ -5,6 +5,7 @@ var React = require('react'),
     Button = require('react-bootstrap').Button,
     Input = require('react-bootstrap').Input;
 
+import { Panel } from 'react-bootstrap';
 
 var STYLES = {
     input:{
@@ -24,14 +25,19 @@ module.exports = React.createClass({
                 className: 'vx_form-control',
                 style: STYLES.input
             };
+
+            function handleClick() {
+  alert('You have clicked on you');
+}
+
         return (
-            <div id="fieldsPane">
+            <div id="fieldsPane" onClick={ handleClick }>
 
                 <div className="row">
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
 
-                        <h1> Please enter the Scenario name to start... </h1>                        
+                        <h1> Please enter the Scenario name to start...</h1>                        
                     </div>
                     <div className="col-md-3"></div>
                 </div>
@@ -50,7 +56,7 @@ module.exports = React.createClass({
                 <div className="row">
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
-                        <Button type='submit' className='vx_btn' style={STYLES.nextBtn}>Next</Button>                        
+                        <Button type='submit' bsStyle="primary" bsSize="small" style={STYLES.nextBtn}>Next</Button>                        
                     </div>
                     <div className="col-md-3"></div>
                 </div>

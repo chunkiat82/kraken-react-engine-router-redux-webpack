@@ -37,7 +37,7 @@
                         "browserify": {
                             "module": "kraken-devtools-browserify",
                             "files": "/bundle.js",
-                            "transform": ["reactify", "require-globify"]
+                            "transform": ["babelify","reactify", "require-globify"]
                         }
                     }
                 ]
