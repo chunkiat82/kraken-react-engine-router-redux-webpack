@@ -16,40 +16,24 @@
 'use strict';
 
 var React = require('react');
-var Footer = require('./footer.js');
-var Header = require('./header.js');
+
 module.exports = React.createClass({
 
-	render: function render() {
+    render: function render() {
 
-		return (
-			<html>
-				<head>
-					<meta charSet='utf-8' />
-					<title>
-			{this.props.title}
-					</title>
-				</head>
-				<body>
-					<Header/>
-
-					<div className="vx_foreground-container">
-						<div className="vx_mainContent">
-							{this.props.children}
-						</div>
-					</div>
-					
-					{/* 
-					<Footer {...this.props}>
-					</Footer>
-					*/}
-						
-				</body>
-				  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-				  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-				  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-				  <script src='/bundle.js'></script>
-			</html>
-		);
-	}
+        return (
+            <html>
+                <head>
+                    <meta charSet='utf-8' />
+                    <title>
+            {this.props.title}
+                    </title>
+                </head>
+                <body>
+          {this.props.children}
+                </body>
+                <script src='/bundle.js'></script>
+            </html>
+        );
+    }
 });

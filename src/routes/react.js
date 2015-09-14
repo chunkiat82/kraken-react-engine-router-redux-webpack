@@ -20,9 +20,10 @@ var Router = require('react-router');
 
 var App = require('../public/views/app.js');
 var Account = require('../public/views/account.js');
+var Scenario = require('../public/views/scenario.js');
 
 var routes = module.exports = (
     <Router.Route path='/' handler={App}>
-        <Router.DefaultRoute name='account' handler={Account} />
+    <Router.DefaultRoute name='scenario' handler={Scenario} />
     </Router.Route>
 );
