@@ -1,12 +1,10 @@
 'use strict';
 
-var Layout = require('./layout.js');
-var CRDSConvertor = require('../crdsConvertor.js');
-var React = require('react'),
-    Button = require('react-bootstrap').Button,
-    Input = require('react-bootstrap').Input;
+import Layout from './layout.js';
+import React from 'react';
+import {Button, Input,Panel} from 'react-bootstrap';
 import serialize from 'form-serialize';
-var Panel = require('react-bootstrap').Panel;
+import CRDSConvertor from '../crdsConvertor.js';
 
 var STYLES = {
     input:{
@@ -38,12 +36,11 @@ module.exports = React.createClass({
         this.props.nextStep();
     },
     onSubmit: function(event) {
-        var self = this;   
+        var self = this;        
         event.preventDefault();
         var form = this.refs.crdsForm.getDOMNode();
         var $form = $(form);
         var data = serialize(form, { hash: true });
-        console.log(JSON.stringify(data,null,"\t"));
         this.setState({
           serialization: data
         },this.updateSerialization);
@@ -65,7 +62,7 @@ module.exports = React.createClass({
                                 <div className="row">
                                     <div className="col-md-3"></div>
                                     <div className="col-md-6">
-                                        <h1>Please configure your task..</h1><br/>                 
+                                        <h1>Configure Task</h1><br/>                 
                                     </div>
                                     <div className="col-md-3"></div>
                                 </div>
@@ -116,11 +113,9 @@ module.exports = React.createClass({
                                     </div>
                                 </Panel>
                                 <div className="row">
-                                    <div className="col-md-3"></div>
-                                    <div className="col-md-6">
-                                        <Button type='submit' bsStyle="primary" bsSize="small" style={STYLES.nextBtn}>Next</Button>                        
+                                    <div className="col-md-12">
+                                        <Button type='submit' bsStyle="primary" bsSize="large" block>Next</Button>                        
                                     </div>
-                                    <div className="col-md-3"></div>
                                 </div>
                             </div>
                         </div>

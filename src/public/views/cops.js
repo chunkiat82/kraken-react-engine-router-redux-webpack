@@ -5,6 +5,7 @@ var React = require('react'),
 	Input = require('react-bootstrap').Input;
 var Immutable = require('immutable');
 var Panel = require('react-bootstrap').Panel;
+import CopsFields from './copsFields';
 import serialize from 'form-serialize';
 
 var STYLES = {
@@ -61,70 +62,8 @@ module.exports = React.createClass({
 		var fieldIndex = this.state.addedFields.size;
 		var fieldKey = 'data_element[' + fieldIndex + ']';
 		console.log("in addNewfield");
-		console.log(fieldIndex);
-		var fieldEle = (
-			<div>
-			<div className="row">
-	            <div className="col-md-1"></div>
-	            <div className="col-md-10">
-	                <Panel header="Field">
-						<div className="row">
-							<div className="col-md-1"></div>
-							<div className="col-md-10">
-								<Input type="select" label="Field Name" placeholder="select" name={fieldKey + '[fieldName]'}>
-								<option value="PERSON_FULL_NAME">PERSON_FULL_NAME</option>
-								<option value="DATE_OF_BIRTH">DATE_OF_BIRTH</option>
-								<option value="CPF">CPF</option>
-								<option value="HOME_ADDRESS">HOME_ADDRESS</option>
-								<option value="HOME_PHONE_NUMBER">HOME_PHONE_NUMBER</option>
-								<option value="OCCUPATION">OCCUPATION</option>
-								</Input>
-
-							</div>
-							<div className="col-md-1"></div>
-						</div>
-
-				        <div className="row">
-				            <div className="col-md-1"></div>
-				            <div className="col-md-10">
-				                <Input type="select" label="Input type" placeholder="select" name={fieldKey + '[inputType]'}>
-				                  <option value="UPLOADED_DOCUMENT">UPLOADED_DOCUMENT</option>
-				                  <option value="INPUT_TEXT">INPUT_TEXT</option>
-				                </Input>
-				                
-				            </div>
-				            <div className="col-md-1"></div>
-				        </div>
-
-				        <div className="row">
-				            <div className="col-md-1"></div>
-				            <div className="col-md-10">
-				                <Input type="select" label="constriant" placeholder="select" name={fieldKey + '[constraint]'}>
-				                  <option value="ALL_OF">ALL_OF</option>
-				                  <option value="ONE_OF">ONE_OF</option>
-				                </Input>                        
-				            </div>
-				            <div className="col-md-1"></div>
-				        </div>
-
-				        <div className="row">
-				            <div className="col-md-1"></div>
-				            <div className="col-md-10">
-
-				                <Input type="select" label="Access Mode" placeholder="select" name={fieldKey + '[accessMode]'}>
-				                  <option value="READ_ONLY">READ_ONLY</option>
-				                  <option value="READ_WRITE">READ_WRITE</option>
-				                </Input>
-				                
-				            </div>
-				            <div className="col-md-1"></div>
-				        </div>    
-				    </Panel>                  
-	            </div>	            
-	            <div className="col-md-1"></div>	            
-	        </div>
-	       </div>
-        );
+		console.log(fieldIndex);		
+		var fieldEle = React.createElement(CopsFields, { key:fieldKey}, null);
 		
 		this.setState(function(prev) {
 		  return {

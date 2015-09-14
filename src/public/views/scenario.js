@@ -3,7 +3,6 @@
 import Layout from './layout.js';
 import React from 'react';
 import { Grid, Row, Col, Input, Button } from 'react-bootstrap';
-import { BasicForm,InputField  } from 'react-serial-forms';
 import serialize from 'form-serialize';
 
 export default class Sceneario extends React.Component {
@@ -39,7 +38,7 @@ export default class Sceneario extends React.Component {
                 <Row className="show-grid">
                     <Col xs={1} md={3}></Col>
                     <Col xs={10} md={6}>
-                        <h1>Scenario Description</h1>
+                        <h1>Describe Scenario</h1>
                     </Col>
                     <Col xs={1} md={3}></Col>
                 </Row>
