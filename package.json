@@ -23,7 +23,8 @@
     "react-bootstrap": "^0.25.2",
     "react-engine": "^2.0.0",
     "react-router": "^0.13.3",
-    "react-serial-forms": "^1.1.2"
+    "react-serial-forms": "^1.1.2",
+    "react-wizard": "^0.3.4"
   },
   "devDependencies": {
     "babel-core": "^5.8.24",

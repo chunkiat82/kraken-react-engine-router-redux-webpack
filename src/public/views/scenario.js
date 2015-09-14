@@ -10,21 +10,26 @@ export default class Sceneario extends React.Component {
 
     constructor() {
         super();        
-        this.state = { serialization: "ssss" }
+        this.state = { serialization: "" }
         this. _onSubmit = this. _onSubmit.bind(this);
     }
 
 
     _onSubmit(event) {         
-        var form = this.refs.myForm.getDOMNode();
-        var $form = $(form);
-        var data = $form.serialize();
-        console.log(data);
-        this.setState({
-          serialization: data
+        event.preventDefault();
+        var form = this.refs.myForm.getDOMNode();             
+        var data = serialize(form, { hash: true });  
+        this.setState({serialization: data}, () => {
+            console.log(this.state.serialization);    
         });
-        //event.preventDefault();
+
+        this.props.saveValues(data)
+        this.props.nextStep();
+        
+        
     }
+
+
 
     render() {
         var serialization = JSON.stringify(this.state.serialization, null, 2);
@@ -34,7 +39,7 @@ export default class Sceneario extends React.Component {
                 <Row className="show-grid">
                     <Col xs={1} md={3}></Col>
                     <Col xs={10} md={6}>
-                        <h1>Please enter the Scenario name to start...</h1>                        
+                        <h1>Scenario Description</h1>
                     </Col>
                     <Col xs={1} md={3}></Col>
                 </Row>
@@ -58,17 +63,7 @@ export default class Sceneario extends React.Component {
                         <Button onClick={this._onSubmit} bsStyle="primary" bsSize="large" block>Submit</Button>
                     </Col>
                     <Col xs={1} md={3}></Col>
-                </Row>
-                
-                <Row className="show-grid">   
-                    <Col xs={1} md={3}></Col>
-                    <Col xs={10} md={6}>
-                        <pre>
-                            {serialization}
-                        </pre>
-                    </Col>
-                    <Col xs={1} md={3}></Col>
-                </Row>
+                </Row>                
             </Grid>
             </form>
         );
