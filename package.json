@@ -14,6 +14,7 @@
     "form-serialize": "^0.6.0",
     "handlebars": "^4.0.2",
     "immutable": "^3.7.3",
+    "jszip": "^2.5.0",
     "kraken-devtools": "^1.0.0",
     "kraken-js": "^1.0.1",
     "localizr": "^0.1.6",
