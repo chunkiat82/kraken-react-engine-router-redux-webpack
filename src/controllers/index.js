@@ -26,6 +26,11 @@ module.exports = function (router) {
         res.render(req.url, model);
     });
 
+    router.get('/cops/process', function (req, res) {
+    	console.log(JSON.stringify(req.body,null,'\t'));
+        res.render(req.url, model);
+    });
+
     router.get('/server', function(req, res) {
         res.render('server', model);
     });
