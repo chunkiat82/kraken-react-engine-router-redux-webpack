@@ -22,6 +22,7 @@ function convert(userInput) {
     var theTemplate = Handlebars.compile (JSON.stringify(copsTemplate));
     console.log("goign to replace...");
     var tmp = theTemplate (userInput);
+    console.log(tmp);
     console.log("goign to parse...");
     var result = JSON.parse(tmp);
     console.log("after replace:");

@@ -68,7 +68,7 @@ module.exports = React.createClass({
 		var fieldKey = 'fields[' + fieldIndex + ']';
 		console.log("in addNewfield");
 		console.log(fieldIndex);		
-		var fieldEle = React.createElement(CopsFields, { key:fieldKey}, null);		
+		var fieldEle = React.createElement(CopsFields, { fieldKey:fieldKey}, null);		
 		this.setState(function(prev) {
 		  return {
 			undoCache: prev.undoCache.push(this.state.addedFields),
@@ -178,6 +178,7 @@ module.exports = React.createClass({
             </div>
             <div className="col-md-1"></div>
         </div>
+
         </form>
 		  
 		);
