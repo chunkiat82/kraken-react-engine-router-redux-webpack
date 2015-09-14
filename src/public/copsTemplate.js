@@ -26,9 +26,7 @@ module.exports = {
               "entity_type": "PARTY",
               "name": "CORE_PROPERTIES",
               "status": "NOT_AVAILABLE",
-              "data_elements": 
-                "{{coreProperties}}"
-                 
+              "data_elements": []
             },
           ],
           "data_elements_constraint": "ALL_OF",
