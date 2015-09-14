@@ -1,6 +1,7 @@
 'use strict';
 
 var Layout = require('./layout.js');
+var CRDSConvertor = require('../crdsConvertor.js');
 var React = require('react'),
     Button = require('react-bootstrap').Button,
     Input = require('react-bootstrap').Input;
@@ -25,10 +26,11 @@ module.exports = React.createClass({
     },
     updateSerialization: function() {
         var self = this;
-        console.log("in updateSerialization");
         var form = this.refs.crdsForm.getDOMNode();
         var $form = $(form);
         var data = serialize(form, { hash: true });
+
+        data.response = CRDSConvertor.convert(data);
         console.log("in updateSerialization");
         console.log(JSON.stringify(data,null,'\t'));
 
@@ -36,14 +38,12 @@ module.exports = React.createClass({
         this.props.nextStep();
     },
     onSubmit: function(event) {
-        var self = this;
-        console.log("in onSubmit");     
+        var self = this;   
         event.preventDefault();
         var form = this.refs.crdsForm.getDOMNode();
         var $form = $(form);
-        console.log("in onSubmit");
         var data = serialize(form, { hash: true });
-        console.log(JSON.stringify(data,null,"\t"));        
+        console.log(JSON.stringify(data,null,"\t"));
         this.setState({
           serialization: data
         },this.updateSerialization);
@@ -74,8 +74,8 @@ module.exports = React.createClass({
                                         <div className="col-md-3"></div>
                                         <div className="col-md-6">
                                             <Input type="select" name="customerType" label="Customer type">
-                                              <option value="person_party">PERSON_PARTY</option>
-                                              <option value="business_party">BUSINESS_PARTY</option>
+                                              <option value="PERSON_PARTY">PERSON_PARTY</option>
+                                              <option value="BUSINESS_PARTY">BUSINESS_PARTY</option>
                                             </Input>                            
                                         </div>
                                         <div className="col-md-3"></div>
@@ -85,7 +85,7 @@ module.exports = React.createClass({
                                         <div className="col-md-3"></div>
                                         <div className="col-md-6">
                                             <Input type="select" name="level" label="Level">
-                                              <option value="cip">CIP</option>
+                                              <option value="CIP">CIP</option>
                                             </Input>                            
                                         </div>
                                         <div className="col-md-3"></div>
@@ -95,9 +95,9 @@ module.exports = React.createClass({
                                         <div className="col-md-3"></div>
                                         <div className="col-md-6">
                                             <Input type="select" name="customerRole" label="Customer role">
-                                              <option value="paypal_primary_user">PAYPAL_PRIMARY_USER</option>
-                                              <option value="director">DIRECTOR</option>
-                                              <option value="beneficial_owner">BENEFICIAL_OWNER</option>
+                                              <option value="PAYPAL_PRIMARY_USER">PAYPAL_PRIMARY_USER</option>
+                                              <option value="DIRECTOR">DIRECTOR</option>
+                                              <option value="BENEFICIAL_OWNER">BENEFICIAL_OWNER</option>
                                             </Input>                            
                                         </div>
                                         <div className="col-md-3"></div>
@@ -108,8 +108,8 @@ module.exports = React.createClass({
                                         <div className="col-md-3"></div>
                                         <div className="col-md-6">
                                             <Input type="select" name="criteria" label="Criteria">
-                                              <option value="third_party_verification">THIRD_PARTY_VERIFICATION</option>
-                                              <option value="proof_of_tax_id">PROOF_OF_TAX_ID</option>
+                                              <option value="THIRD_PARTY_VERIFICATION">THIRD_PARTY_VERIFICATION</option>
+                                              <option value="PROOF_OF_TAX_ID">PROOF_OF_TAX_ID</option>
                                             </Input>                            
                                         </div>
                                         <div className="col-md-3"></div>
