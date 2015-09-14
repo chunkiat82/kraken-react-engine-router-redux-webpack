@@ -54,7 +54,7 @@ module.exports = React.createClass({
         	serializedVal : data
 		  }, self.updateSerialization);
         
-        this.props.saveValues(data)
+        this.props.saveValues('cops',data);
         this.props.nextStep();
 	  },
 	  addNewfield: function() {

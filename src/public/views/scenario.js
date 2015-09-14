@@ -23,7 +23,7 @@ export default class Sceneario extends React.Component {
             console.log(this.state.serialization);    
         });
 
-        this.props.saveValues(data)
+        this.props.saveValues('scenario',data)
         this.props.nextStep();
         
         
@@ -60,7 +60,7 @@ export default class Sceneario extends React.Component {
                  <Row className="show-grid">
                     <Col xs={1} md={3}></Col>
                     <Col xs={10} md={6}>
-                        <Button onClick={this._onSubmit} bsStyle="primary" bsSize="large" block>Submit</Button>
+                        <Button onClick={this._onSubmit} bsStyle="primary" bsSize="large" block>Next</Button>
                     </Col>
                     <Col xs={1} md={3}></Col>
                 </Row>                

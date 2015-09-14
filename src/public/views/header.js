@@ -15,24 +15,27 @@
 
 'use strict';
 
-var React = require('react');
+import React from 'react';
 
-module.exports = React.createClass({
+export default class Header extends React.Component {
 
-	render: function render() {
+	constructor() {
+        super();     
+    }
+
+	render() {
 		return (
 			<nav className="navbar navbar-default">
 				<div className="container-fluid">
 
 					<div className="navbar-header">
-						<a className="navbar-brand" href="#">HackRisk2015</a>
+						<a className="navbar-brand" href="#">#HackRisk2015</a>
 					</div>
-
 					<div>
 					  <ul className="nav navbar-nav">
-					  	<li><a href="#">Scenario</a></li> 
-						<li><a href="#">COPS</a></li>
-						<li><a href="#">CRDS</a></li> 						
+					  	<li><a href="#">The</a></li> 
+						<li><a href="#">Tomorrow</a></li>
+						<li><a href="#">People</a></li> 						
 					  </ul>
 					</div>
 
@@ -40,4 +43,4 @@ module.exports = React.createClass({
 			</nav>
 		);
 	}
-});
+};

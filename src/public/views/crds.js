@@ -31,6 +31,9 @@ module.exports = React.createClass({
         var data = serialize(form, { hash: true });
         console.log("in updateSerialization");
         console.log(JSON.stringify(data,null,'\t'));
+
+        this.props.saveValues('crds',data);
+        this.props.nextStep();
     },
     onSubmit: function(event) {
         var self = this;
