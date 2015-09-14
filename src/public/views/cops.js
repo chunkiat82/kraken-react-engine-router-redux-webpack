@@ -7,6 +7,7 @@ var Immutable = require('immutable');
 var Panel = require('react-bootstrap').Panel;
 import CopsFields from './copsFields';
 import serialize from 'form-serialize';
+import convert from '../copsConverter.js';
 
 var STYLES = {
 	input:{
@@ -23,7 +24,8 @@ module.exports = React.createClass({
 		return {
 		  addedFields: Immutable.List(),
 		  undoCache: Immutable.List(),
-		  serializedVal: ''
+		  serializedVal: '',
+		  copsResponseFormat:''
 		};
 	  },
 	  undo: function() {
@@ -42,6 +44,8 @@ module.exports = React.createClass({
         var $form = $(form);
         var data = serialize(form, { hash: true });
 		console.log(JSON.stringify(data,null,'\t'));
+		self.serializedVal = data;
+		self.copsResponseFormat = convert(data);
 	  },
 
 	  onSubmit: function(event) {
@@ -51,6 +55,7 @@ module.exports = React.createClass({
 		var form = this.refs.myCopsForm.getDOMNode();
         var $form = $(form);
         var data = serialize(form, { hash: true });
+
         this.setState({
         	serializedVal : data
 		  }, self.updateSerialization);
@@ -60,11 +65,10 @@ module.exports = React.createClass({
 	  },
 	  addNewfield: function() {
 		var fieldIndex = this.state.addedFields.size;
-		var fieldKey = 'data_element[' + fieldIndex + ']';
+		var fieldKey = 'fields[' + fieldIndex + ']';
 		console.log("in addNewfield");
 		console.log(fieldIndex);		
-		var fieldEle = React.createElement(CopsFields, { key:fieldKey}, null);
-		
+		var fieldEle = React.createElement(CopsFields, { key:fieldKey}, null);		
 		this.setState(function(prev) {
 		  return {
 			undoCache: prev.undoCache.push(this.state.addedFields),
@@ -74,7 +78,7 @@ module.exports = React.createClass({
 	  },
 
 	  render: function() {
-	  	var serializedVal = JSON.stringify(this.state.serializedVal, null, 2);
+	  	var serializedVal = JSON.stringify(this.state.copsResponseFormat, null, 2);
 
 		return (
 		<form className="fieldsForm" onSubmit={this.onSubmit} ref='myCopsForm'>
