@@ -1,5 +1,6 @@
 import React from 'react'
 import Scenario from './scenario'
+import Cops from './cops'
 
 export default class Wizard extends React.Component {
     constructor() {
@@ -30,9 +31,11 @@ export default class Wizard extends React.Component {
         console.log(JSON.stringify(this.state));
         switch(this.state.step) {
             case 1:
-                return <Scenario nextStep={this.nextStep} saveValues={this.saveValues} />            
+                return <Scenario nextStep={this.nextStep} saveValues={this.saveValues} />
             case 2:
-                return <Scenario nextStep={this.nextStep} saveValues={this.saveValues} />            
+                return <Cops nextStep={this.nextStep} saveValues={this.saveValues} />
+            case 3:
+                return <Scenario nextStep={this.nextStep} saveValues={this.saveValues} />
         }
     }
 }

@@ -53,6 +53,9 @@ module.exports = React.createClass({
         this.setState({
         	serializedVal : data
 		  }, self.updateSerialization);
+        
+        this.props.saveValues(data)
+        this.props.nextStep();
 	  },
 	  addNewfield: function() {
 		var fieldIndex = this.state.addedFields.size;
