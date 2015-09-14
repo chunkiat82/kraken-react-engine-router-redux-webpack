@@ -25,6 +25,11 @@
         "arguments": ["path:./.build"]
       }
     },
+
+    "appsec": {
+      "enabled": false
+    },
+
     "router": {
       "module": {
         "arguments": [{"directory": "path:./.dist/controllers"}]
