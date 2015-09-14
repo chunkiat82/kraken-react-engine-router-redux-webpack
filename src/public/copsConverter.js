@@ -23,4 +23,6 @@ function convert(userInput) {
     return result;
 };
 
-module.exports = convert;
+module.exports = {
+    convert: convert
+};
