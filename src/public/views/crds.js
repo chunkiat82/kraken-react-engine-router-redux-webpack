@@ -42,6 +42,7 @@ module.exports = React.createClass({
         var form = this.refs.crdsForm.getDOMNode();
         var $form = $(form);
         console.log("in onSubmit");
+        var data = serialize(form, { hash: true });
         console.log(JSON.stringify(data,null,"\t"));        
         this.setState({
           serialization: data
