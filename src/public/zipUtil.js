@@ -26,9 +26,10 @@ function archive (req) {
 
 	scenarioFolder.file("urds.1.json", JSON.stringify(urds200));
 	scenarioFolder.file("mpds.1.json", JSON.stringify(mpds200));
+	scenarioFolder.file("scenario.txt", "This is to test " + scenarioName + " scenario.");
 
 	var blob = jsZip.generate({type:"blob"});
-	saveAs(blob, "scenario.zip");
+	saveAs(blob, scenarioName + ".zip");
 }
 
 module.exports = {
