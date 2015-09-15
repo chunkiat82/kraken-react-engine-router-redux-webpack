@@ -2,6 +2,8 @@ import React from 'react'
 import Scenario from './scenario'
 import Cops from './cops'
 import Crds from './crds'
+import Generate from './generate'
+import { Grid, Row, Col, ProgressBar } from 'react-bootstrap';
 
 export default class Wizard extends React.Component {
     constructor() {
@@ -16,7 +18,9 @@ export default class Wizard extends React.Component {
     saveValues(stepName,fields) {
         var temp = {};
         temp[stepName]=fields;
-        this.setState(temp);
+        this.setState(temp, function(){
+            console.log("ssss");
+        });
     }    
  
     nextStep() {
@@ -45,7 +49,9 @@ export default class Wizard extends React.Component {
             case 2:
                 return <Crds data={this.state.crds || {}}  prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
             case 3:
-                return <Cops data={this.state.cops || {}} generate={this.generate} prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
+                return <Cops data={this.state.cops || {}}  prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
+            default:
+                return <Generate generate={this.generate}/>
         }
     }
 }
