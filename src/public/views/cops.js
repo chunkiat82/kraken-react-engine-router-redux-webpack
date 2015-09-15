@@ -53,8 +53,8 @@ module.exports = React.createClass({
 	},
 	onSubmit: function(event) {             
 		event.preventDefault();
-		var data = this._onChange();		
-		this.props.saveValues('cops',data);
+		var data = this._onChange();
+		this.props.saveValues('cops', data);
 		this.props.nextStep();
 	},
 	addNewfield: function() {

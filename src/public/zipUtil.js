@@ -1,9 +1,11 @@
 "use strict";
 
 var zip = require("jszip");
+var copsAllow = require("./responseTemplates/cops/copsAllow.js");
+var urds200 = require("./responseTemplates/urds/urds200.js");
+var mpds200 = require("./responseTemplates/mpds/mpds200.js");
 
 function archive (req) {
-	console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 	console.log(JSON.stringify(req,null,"\t"));
 	var jsZip = new zip();
 	var scenarioName;
@@ -13,16 +15,17 @@ function archive (req) {
 	var scenarioFolder = jsZip.folder(scenarioName);
 
 	if (req.hasOwnProperty("crds") && req.crds.hasOwnProperty("response") && req.crds.response) {
-		scenarioFolder.file("crds.1.json", req.crds.response);
-		scenarioFolder.file("crds.2.json", req.crds.response);
-		console.log("Vetri****************");
+		scenarioFolder.file("crds.1.json", JSON.stringify(req.crds.response));
+		scenarioFolder.file("crds.2.json", JSON.stringify(req.crds.response));
 	}
 
 	if (req.hasOwnProperty("cops") && req.crds.hasOwnProperty("response") && req.crds.response) {
-		scenarioFolder.file("cops.1.json", req.cops.response);
-		scenarioFolder.file("cops.2.json", req.cops.response);
-		console.log("Vetri****************");
+		scenarioFolder.file("cops.1.json", JSON.stringify(req.cops.response));
+		scenarioFolder.file("cops.2.json", JSON.stringify(copsAllow));
 	}
+
+	scenarioFolder.file("urds.1.json", JSON.stringify(urds200));
+	scenarioFolder.file("mpds.1.json", JSON.stringify(mpds200));
 
 	var blob = jsZip.generate({type:"blob"});
 	saveAs(blob, "scenario.zip");
