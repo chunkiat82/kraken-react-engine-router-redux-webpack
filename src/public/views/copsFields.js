@@ -31,8 +31,8 @@ export default class CopsFields extends React.Component {
                         <Row className="show-grid">
                             <Col xs={12} md={12}>
                                 <Input type="select" onChange={this.props._onChange} label="Input type" placeholder="select" name={this.props.fieldKey + '[inputType]'}>
-                                <option value="UPLOADED_DOCUMENT">UPLOADED_DOCUMENT</option>
                                 <option value="INPUT_TEXT">INPUT_TEXT</option>
+                                <option value="UPLOADED_DOCUMENT">UPLOADED_DOCUMENT</option>
                                 </Input>
                             </Col>
                         </Row>
@@ -47,8 +47,8 @@ export default class CopsFields extends React.Component {
                         <Row className="show-grid">
                             <Col xs={12} md={12}>
                                 <Input type="select" onChange={this.props._onChange} label="Access Mode" placeholder="select" name={this.props.fieldKey + '[accessMode]'}>
-                                <option value="READ_ONLY">READ_ONLY</option>
                                 <option value="READ_WRITE">READ_WRITE</option>
+                                <option value="READ_ONLY">READ_ONLY</option>
                                 </Input>
                             </Col>
                         </Row>
