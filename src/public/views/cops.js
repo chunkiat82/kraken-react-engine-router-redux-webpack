@@ -91,7 +91,7 @@ module.exports = React.createClass({
 
 			<div className="col-md-1"></div>
 			<div className="col-md-5">
-				<Panel header='Define decision details'>    
+				<Panel header='Define decision details' bsStyle="info">    
 					<div className="row">
 						<div className="col-md-1"></div>
 						<div className="col-md-10">
@@ -131,12 +131,12 @@ module.exports = React.createClass({
 	   
 				 </Panel>                
 				
-				<Panel header='Define field elements'>  
+				<Panel header='Define field elements' bsStyle="info">  
 					<div className="row">
 						<div className="col-md-1"></div>
 						<div className="col-md-10">
-							<Button onClick={this.addNewfield} type='button'  bsSize="small">Add a new field</Button>
-							<Button onClick={this.undo} type='button' disabled={!this.state.addedFields.size}  bsSize="small">Undo</Button>
+							<Button onClick={this.addNewfield} type='button' bsStyle="primary" bsSize="medium">Add a new field</Button>
+							<Button onClick={this.undo} type='button' bsStyle="primary" disabled={!this.state.addedFields.size}  bsSize="medium">Undo</Button>
 							{this.state.addedFields.map(function(field) {
 								return field;
 							})}                   
@@ -156,7 +156,7 @@ module.exports = React.createClass({
                 </div> 
 
 			</div>
-			<div className="col-md-5">
+			<div className="col-md-5" bsStyle="info">
 				<div id="serializationPane">
 					<pre>
 						{serialization}

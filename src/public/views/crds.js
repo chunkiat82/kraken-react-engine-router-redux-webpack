@@ -66,7 +66,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <div className="col-md-1"></div>
                         <div className="col-md-5">                            
-                            <Panel header='Level configuration'>
+                            <Panel header='Level configuration' bsStyle="info">
                                 <div className="row">
                                     <div className="col-md-3"></div>
                                     <div className="col-md-6">
@@ -100,7 +100,7 @@ module.exports = React.createClass({
                                     <div className="col-md-3"></div>
                                 </div>
                             </Panel>
-                            <Panel header='Criteria configuration'>                        
+                            <Panel header='Criteria configuration' bsStyle="info">                        
                                 <div className="row">
                                     <div className="col-md-3"></div>
                                     <div className="col-md-6">
@@ -121,7 +121,7 @@ module.exports = React.createClass({
                                 </div>
                             </div>                            
                         </div>
-                        <div className="col-md-5">
+                        <div className="col-md-5" >
                             <pre>
                                 {serialization}                                
                             </pre>

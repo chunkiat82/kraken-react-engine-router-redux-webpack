@@ -2,7 +2,7 @@
 
 import Layout from './layout.js';
 import React from 'react';
-import { Grid, Row, Col, Input, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Input, Button, Panel, Jumbotron } from 'react-bootstrap';
 import serialize from 'form-serialize';
 
 export default class Sceneario extends React.Component {
@@ -35,34 +35,34 @@ export default class Sceneario extends React.Component {
         return (
             <form ref='myForm' onSubmit={ false}>
             <Grid>
-                <Row className="show-grid">
-                    <Col xs={1} md={3}></Col>
-                    <Col xs={10} md={6}>
-                        <center><h1>Describe Scenario</h1></center>
-                    </Col>
-                    <Col xs={1} md={3}></Col>
-                </Row>
-                <Row className="show-grid">
-                    <Col xs={1} md={3}></Col>
-                    <Col xs={10} md={6}>
-                        <Input onChange={this._save} type="text" id='scenarioName' name="scenarioName" placeholder='Scenario Name' value={this.props.data.scenarioName} />
-                    </Col>
-                    <Col xs={1} md={3}></Col>
-                </Row>
-                <Row className="show-grid">
-                    <Col xs={1} md={3}></Col>
-                    <Col xs={10} md={6}>
-                        <Input onChange={this._save}type="textarea" name="scenarioDescription" placeholder='Scenario Description' value={this.props.data.scenarioDescription}/>
-                    </Col>
-                    <Col xs={1} md={3}></Col>
-                </Row>
-                 <Row className="show-grid">
-                    <Col xs={1} md={3}></Col>
-                    <Col xs={10} md={6}>
-                        <Button onClick={this._onSubmit} bsStyle="primary" bsSize="large" block>Next</Button>
-                    </Col>
-                    <Col xs={1} md={3}></Col>
-                </Row>                
+                <Jumbotron bsStyle="info">
+                    <h1>Mocking jay!</h1>
+                    <p>This is a simple Mocking tool for product owners and RIGHT NOW enthusiats to have a quick peek on how a compliance policy requirement is rendered and collected.</p>
+                </Jumbotron>
+                    <Panel header='Create a Scenario' bsStyle="info"> 
+                        <Row className="show-grid">
+                            <Col xs={1} md={3}></Col>
+                            <Col xs={10} md={6}>
+                                <Input onChange={this._save} type="text" id='scenarioName' name="scenarioName" placeholder='Scenario Name' value={this.props.data.scenarioName} />
+                            </Col>
+                            <Col xs={1} md={3}></Col>
+                        </Row>
+                        <Row className="show-grid">
+                            <Col xs={1} md={3}></Col>
+                            <Col xs={10} md={6}>
+                                <Input onChange={this._save}type="textarea" name="scenarioDescription" placeholder='Scenario Description' value={this.props.data.scenarioDescription}/>
+                            </Col>
+                            <Col xs={1} md={3}></Col>
+                        </Row>
+                         <Row className="show-grid">
+                            <Col xs={1} md={3}></Col>
+                            <Col xs={10} md={6}>
+                                <Button onClick={this._onSubmit} bsStyle="primary" bsSize="large" block>Next</Button>
+                            </Col>
+                            <Col xs={1} md={3}></Col>
+                        </Row>  
+                    </Panel>
+                
             </Grid>
             </form>
         );
