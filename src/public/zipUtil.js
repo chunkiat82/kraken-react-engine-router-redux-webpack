@@ -4,6 +4,7 @@ var zip = require("jszip");
 var copsAllow = require("./responseTemplates/cops/copsAllow.js");
 var urds200 = require("./responseTemplates/urds/urds200.js");
 var mpds200 = require("./responseTemplates/mpds/mpds200.js");
+var reqUser = require("./responseTemplates/req-user.js");
 
 function archive (req) {
 	console.log(JSON.stringify(req,null,"\t"));
@@ -26,6 +27,7 @@ function archive (req) {
 
 	scenarioFolder.file("urds.1.json", JSON.stringify(urds200));
 	scenarioFolder.file("mpds.1.json", JSON.stringify(mpds200));
+	scenarioFolder.file("req-user.json", JSON.stringify(reqUser));
 	scenarioFolder.file("scenario.txt", "This is to test " + scenarioName + " scenario.");
 
 	var blob = jsZip.generate({type:"blob"});
