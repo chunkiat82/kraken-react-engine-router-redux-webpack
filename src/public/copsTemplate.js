@@ -1,6 +1,8 @@
 "use strict";
 
 module.exports = {
+  "statusCode": 200,
+  "body": {
   "decisions": [
     {
       "decision_code": "{{decisionCode}}",
@@ -46,4 +48,5 @@ module.exports = {
       ]
     }
   ]
+}
 }

@@ -17,7 +17,7 @@ function convert(userInput) {
     var theTemplate = Handlebars.compile (JSON.stringify(copsTemplate));
     var tmp = theTemplate (userInput);
     var result = JSON.parse(tmp);
-    result.decisions[0].data_elements[0].data_elements[0].data_elements = coreProperties;
+    result.body.decisions[0].data_elements[0].data_elements[0].data_elements = coreProperties;
     console.log(JSON.stringify(result,null,'\t'));
     console.log("------------------");
     return result;
