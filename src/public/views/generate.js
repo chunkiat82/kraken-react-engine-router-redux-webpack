@@ -7,23 +7,29 @@ import { Grid, Row, Col, ProgressBar } from 'react-bootstrap';
 export default class Wizard extends React.Component {
     constructor() {
         super();        
-        this.state = {progress:10}
+        this.state = {progress:10 , downloaded:false}
        
     }
 
     componentDidMount(){
         setInterval(()=>{
             this.setState(prev => {
-                var temp = ((prev.progress + 10) %100);
+                var temp = ((prev.progress + 10) %100);                
+                console.log(prev.progress + " " +prev.downloaded);
+                if (prev.progress == 40 && !prev.downloaded) {            
+                    this.props.generate();
+                }
                 return {
-                    progress:temp
+                    progress:temp,
+                    downloaded:(prev.downloaded || temp === 50) 
                 }
             })
         },1000);
-        this.props.generate();
+
     }
 
     render() {
+        
         return (
             <Grid>
                 <Row>
