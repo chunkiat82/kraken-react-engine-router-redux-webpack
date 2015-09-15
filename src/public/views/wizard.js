@@ -10,6 +10,7 @@ export default class Wizard extends React.Component {
         this.saveValues = this.saveValues.bind(this);
         this.nextStep = this.nextStep.bind(this);
         this.prevStep = this.prevStep.bind(this);
+        this.generate = this.generate.bind(this);
     }
 
     saveValues(stepName,fields) {
@@ -32,6 +33,10 @@ export default class Wizard extends React.Component {
         })
     }
 
+    generate(){
+        alert("here i am ");
+    }
+
     render() {
         console.log(JSON.stringify(this.state));        
         switch(this.state.step) {
@@ -40,7 +45,7 @@ export default class Wizard extends React.Component {
             case 2:
                 return <Crds data={this.state.crds || {}}  prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
             case 3:
-                return <Cops data={this.state.cops || {}} prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
+                return <Cops data={this.state.cops || {}} generate={this.generate}prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
         }
     }
 }
