@@ -64,15 +64,12 @@ module.exports = React.createClass({
 		console.log(fieldIndex);		
 		var fieldEle = React.createElement(CopsFields, { key:fieldKey, fieldKey:fieldKey , _onChange:this._onChange}, null);		
 		this.setState(function(prev) {			
-			var form = this.refs.myCopsForm.getDOMNode();
-			var $form = $(form);
-			var data = serialize(form, { hash: true });
-			data.response = copsConverter.convert(data);
 		  	return {
 				undoCache: prev.undoCache.push(this.state.addedFields),
-				addedFields: prev.addedFields.push(fieldEle),
-				response: data.response
+				addedFields: prev.addedFields.push(fieldEle)
 		  	};
+		}, function(){
+			this._onChange()
 		});
 	},
 	componentDidMount: function(){

@@ -45,7 +45,7 @@ export default class Wizard extends React.Component {
             case 2:
                 return <Crds data={this.state.crds || {}}  prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
             case 3:
-                return <Cops data={this.state.cops || {}} generate={this.generate}prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
+                return <Cops data={this.state.cops || {}} generate={this.generate} prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />
         }
     }
 }
