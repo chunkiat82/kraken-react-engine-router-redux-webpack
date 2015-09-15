@@ -38,6 +38,10 @@
                             "module": "kraken-devtools-browserify",
                             "files": "/bundle.js",
                             "transform": ["babelify","require-globify"]
+                        },
+                        "copier": {
+                           "module": "kraken-devtools/plugins/copier",
+                            "files": "/favicon.ico"
                         }
                     }
                 ]

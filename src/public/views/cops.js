@@ -62,7 +62,7 @@ module.exports = React.createClass({
 		var fieldKey = 'fields[' + fieldIndex + ']';
 		console.log("in addNewfield");
 		console.log(fieldIndex);		
-		var fieldEle = React.createElement(CopsFields, { key:fieldKey, fieldKey:fieldKey}, null);		
+		var fieldEle = React.createElement(CopsFields, { key:fieldKey, fieldKey:fieldKey , _onChange:this._onChange}, null);		
 		this.setState(function(prev) {
 		  return {
 			undoCache: prev.undoCache.push(this.state.addedFields),

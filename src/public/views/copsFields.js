@@ -18,7 +18,7 @@ export default class CopsFields extends React.Component {
                     <Panel header="Field">
                          <Row className="show-grid">                            
                             <Col xs={12} md={12}>
-                                <Input type="select" label="Field Name" placeholder="select" name={this.props.fieldKey + '[fieldName]'}>
+                                <Input type="select" onChange={this.props._onChange} label="Field Name" placeholder="select" name={this.props.fieldKey + '[fieldName]'}>
                                 <option value="PERSON_FULL_NAME">PERSON_FULL_NAME</option>
                                 <option value="DATE_OF_BIRTH">DATE_OF_BIRTH</option>
                                 <option value="CPF">CPF</option>
@@ -30,7 +30,7 @@ export default class CopsFields extends React.Component {
                         </Row>                    
                         <Row className="show-grid">
                             <Col xs={12} md={12}>
-                                <Input type="select" label="Input type" placeholder="select" name={this.props.fieldKey + '[inputType]'}>
+                                <Input type="select" onChange={this.props._onChange} label="Input type" placeholder="select" name={this.props.fieldKey + '[inputType]'}>
                                 <option value="UPLOADED_DOCUMENT">UPLOADED_DOCUMENT</option>
                                 <option value="INPUT_TEXT">INPUT_TEXT</option>
                                 </Input>
@@ -38,7 +38,7 @@ export default class CopsFields extends React.Component {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={12} md={12}>
-                                <Input type="select" label="constriant" placeholder="select" name={this.props.fieldKey + '[constraint]'}>
+                                <Input type="select" onChange={this.props._onChange} label="constriant" placeholder="select" name={this.props.fieldKey + '[constraint]'}>
                                 <option value="ALL_OF">ALL_OF</option>
                                 <option value="ONE_OF">ONE_OF</option>
                                 </Input>
@@ -46,7 +46,7 @@ export default class CopsFields extends React.Component {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={12} md={12}>
-                                <Input type="select" label="Access Mode" placeholder="select" name={this.props.fieldKey + '[accessMode]'}>
+                                <Input type="select" onChange={this.props._onChange} label="Access Mode" placeholder="select" name={this.props.fieldKey + '[accessMode]'}>
                                 <option value="READ_ONLY">READ_ONLY</option>
                                 <option value="READ_WRITE">READ_WRITE</option>
                                 </Input>
