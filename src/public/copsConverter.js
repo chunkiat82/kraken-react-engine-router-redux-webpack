@@ -1,8 +1,8 @@
 'use strict';
 
 var Handlebars = require('handlebars');
-var copsTemplate = require('./copsTemplate');
-var dataElementTemplate = require('./dataElementTemplate');
+var copsTemplate = require('./responseTemplates/cops/copsTemplate');
+var dataElementTemplate = require('./responseTemplates/cops/dataElementTemplate');
 
 function convert(userInput) {
     var coreProperties = [];
