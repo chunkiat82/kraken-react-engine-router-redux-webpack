@@ -36,8 +36,8 @@ export default class Sceneario extends React.Component {
             <form ref='myForm' onSubmit={ false}>
             <Grid>
                 <Jumbotron bsStyle="info">
-                    <h1>Mocking jay!</h1>
-                    <p>This is a simple Mocking tool for product owners and RIGHT NOW enthusiats to have a quick peek on how a compliance policy requirement is rendered and collected.</p>
+                    <h1>3 Easy Steps</h1>
+                    <p>Give a Scenario, State a Process, List your Elements...</p>
                 </Jumbotron>
                     <Panel header='Create a Scenario' bsStyle="info"> 
                         <Row className="show-grid">
