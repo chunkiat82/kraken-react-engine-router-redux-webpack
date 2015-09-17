@@ -41,7 +41,7 @@ module.exports = React.createClass({
         event.preventDefault();
         var data = this._onChange();
         this.props.saveValues('crds',data);
-        this.props.nextStep();
+        this.props.nextStep();        
     },
     componentDidMount: function(){
         this._onChange();

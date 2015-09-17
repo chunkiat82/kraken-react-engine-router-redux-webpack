@@ -26,6 +26,7 @@
                 "arguments": ["path:./.build"]
             }
         },
+        
         "devtools": {
             "enabled": true,
             "priority": 35,
@@ -34,13 +35,8 @@
                 "arguments": [
                     "path:./src/public",
                     "path:./.build", {
-                        "browserify": {
-                            "module": "kraken-devtools-browserify",
-                            "files": "/bundle.js",
-                            "transform": ["babelify","require-globify"]
-                        },
                         "copier": {
-                           "module": "kraken-devtools/plugins/copier",
+                            "module": "kraken-devtools/plugins/copier",
                             "files": "/favicon.ico"
                         }
                     }
@@ -48,6 +44,10 @@
             }
         },
 
+        "webpack": {
+            "priority": 117,
+            "module": "path:./middleware/webpack"
+        },
 
         "router": {
             "module": {

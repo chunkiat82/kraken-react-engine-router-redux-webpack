@@ -1,4 +1,4 @@
-module.exports = {
+{
     "password": "********",
     "username": "dilo-br@paypal.com",
     "authorities": [],
@@ -517,4 +517,4 @@ module.exports = {
     "legalCountry": "BR",
     "email": "rayho-br@paypal.com",
     "accountClosed": false
-};
+}

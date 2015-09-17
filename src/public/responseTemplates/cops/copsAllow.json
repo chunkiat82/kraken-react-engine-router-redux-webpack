@@ -1,4 +1,4 @@
-module.exports = {
+{
     "statusCode":200,
     "body":{
       "decisions": [
@@ -10,4 +10,4 @@ module.exports = {
         }
       ]
     }  
-};
+}

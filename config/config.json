@@ -20,11 +20,7 @@
   },
 
   "middleware": {
-    "static": {
-      "module": {
-        "arguments": ["path:./.build"]
-      }
-    },
+  
 
     "appsec": {
       "enabled": false

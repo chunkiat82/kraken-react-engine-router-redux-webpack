@@ -1,10 +1,10 @@
 "use strict";
 
 var Handlebars = require("handlebars");
-var crdsTemplate = require("./responseTemplates/crds/consumerCip.js");
+var template = require("./responseTemplates/crds/consumerCip.hbs");
 
 function convert (req) {
-	var template = Handlebars.compile(JSON.stringify(crdsTemplate));
+	
 	var crdsResponse = JSON.parse(template(req));
 	return crdsResponse;
 }
