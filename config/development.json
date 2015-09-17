@@ -20,12 +20,6 @@
     },
 
     "middleware": {
-
-        "static": {
-            "module": {
-                "arguments": ["path:./.build"]
-            }
-        },
         
         "devtools": {
             "enabled": true,
