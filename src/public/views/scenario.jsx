@@ -27,30 +27,31 @@ export default class Sceneario extends React.Component {
 
     render() {
         var serialization = JSON.stringify(this.state.serialization, null, 2);
-        return (
-            <form onSubmit={ false}>
-                <Grid>
-                    <Jumbotron bsStyle="info">                    
-                        <p>Simple Wizard Form</p>
-                    </Jumbotron>
-                    <Panel header='Data Collection' bsStyle="info"> 
-                        <Row className="show-grid">
-                            <Col xs={1} md={3}></Col>
-                            <Col xs={10} md={6}>
-                                <Input ref="myTextInput" onChange={this._save} type="text" id={this.props.fieldName} name={this.props.fieldName} placeholder={this.props.fieldName} value={this.props[this.props.fieldName]} />
-                            </Col>
-                            <Col xs={1} md={3}></Col>
-                        </Row>
-                         <Row className="show-grid">
-                            <Col xs={1} md={3}></Col>
-                            <Col xs={10} md={6}>
-                                <Button onClick={this._onSubmit} bsStyle="primary" bsSize="large" block>Next</Button>
-                            </Col>
-                            <Col xs={1} md={3}></Col>
-                        </Row>  
-                    </Panel>            
-                </Grid>
-            </form>
+        const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
+        return (            
+            <Grid>
+                <Jumbotron bsStyle="info">                    
+                    <p>Simple Wizard Form - Clicked: {counter} times <Button onClick={increment}>+</Button></p>
+
+                </Jumbotron>
+                <Panel header='Data Collection' bsStyle="info"> 
+                    <Row className="show-grid">
+                        <Col xs={1} md={3}></Col>
+                        <Col xs={10} md={6}>
+                            <Input ref="myTextInput" onChange={this._save} type="text" id={this.props.fieldName} name={this.props.fieldName} placeholder={this.props.fieldName} value={this.props[this.props.fieldName]} />
+                        </Col>
+                        <Col xs={1} md={3}></Col>
+                    </Row>
+                     <Row className="show-grid">
+                        <Col xs={1} md={3}></Col>
+                        <Col xs={10} md={6}>                            
+                            <Button onClick={this._onSubmit} bsStyle="primary" bsSize="large" block>Next</Button>
+                        </Col>
+                        <Col xs={1} md={3}></Col>
+                    </Row>  
+                </Panel>            
+            </Grid>
+            
         );
     }
 }

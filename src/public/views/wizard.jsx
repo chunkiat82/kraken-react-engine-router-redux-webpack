@@ -24,7 +24,8 @@ export default class Wizard extends React.Component {
         var self = this;     
         this.setState({
             step : self.state.step + 1
-        })        
+        })  
+        //store.dispatch({ type: 'INCREMENT' });     
     }
 
     prevStep() {
@@ -32,16 +33,17 @@ export default class Wizard extends React.Component {
         this.setState({
             step : self.state.step - 1
         })
+        //store.dispatch({ type: 'DECREMENT' });
     }
 
 
-    render() {        
+    render() {                
         switch(this.state.step) {
             case 1:
-                //this can be refactored to another component... later :)
-                return (<Scenario key="1" fieldName="firstName" prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />);
+                //this can be refactored to another component... later :)                      
+                return (<Scenario {...this.props} key="1" fieldName="firstName" prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues}></Scenario>);                          
             case 2:
-                return (<Scenario key="2" fieldName="lastName" prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />);
+                return (<Scenario {...this.props} key="2" fieldName="lastName" prevStep={this.prevStep} nextStep={this.nextStep} saveValues={this.saveValues} />);
             default:
                 return <HelloWorld key="others" firstName={this.state.firstName} lastName={this.state.lastName}/>
         }

@@ -15,17 +15,17 @@
 
 'use strict';
 
-var Layout = require('./layout.jsx');
-var React = require('react');
-var Router = require('react-router');
+import Layout from './layout.jsx';
+import React from 'react';
+import {Router, RouteHandler} from 'react-router' ;
 
-module.exports = React.createClass({
+export default class App extends React.Component{
 
-  render: function render() {
+  render() {
     return (
-      <Layout {...this.props}>
-        <Router.RouteHandler {...this.props}/>
-      </Layout>
-    );
+		<Layout {...this.props}>
+			<RouteHandler {...this.props}/>
+		</Layout>
+    )
   }
-});
+}

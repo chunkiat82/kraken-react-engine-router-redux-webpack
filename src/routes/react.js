@@ -1,14 +1,14 @@
 'use strict';
 
-var React = require('react');
-var Router = require('react-router');
+import React from 'react';
+import {Router, Route, DefaultRoute} from 'react-router';
 
-var App = require('../public/views/app.jsx');
-var Scenario = require('../public/views/scenario.jsx');
-var Wizard = require('../public/views/wizard.jsx');
+import App from '../public/views/app.jsx';
+import Scenario from '../public/views/scenario.jsx';
+import Container from '../public/views/container.jsx';
 
 var routes = module.exports = (
-    <Router.Route path='/' handler={App}>
-    	<Router.DefaultRoute name='wizard' handler={Wizard} />    	
-    </Router.Route>
+  	<Route path="/" handler={App} >
+        <DefaultRoute name='wizard' handler={Container}/> 
+    </Route>
 );
