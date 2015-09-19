@@ -4,7 +4,7 @@ import Cops from './cops.jsx'
 import Crds from './crds.jsx'
 import Generate from './generate.jsx'
 import { Grid, Row, Col, ProgressBar } from 'react-bootstrap';
-import Zip from '../zipUtil.js'
+import Zip from '../../utils/zipUtil.js'
 
 export default class Wizard extends React.Component {
     constructor() {
@@ -28,8 +28,7 @@ export default class Wizard extends React.Component {
         var self = this;     
         this.setState({
             step : self.state.step + 1
-        })
-        alert('setp');
+        })        
     }
 
     prevStep() {

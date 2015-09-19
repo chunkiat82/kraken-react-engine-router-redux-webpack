@@ -1,10 +1,10 @@
 "use strict";
 
 var zip = require("jszip");
-var copsAllow = require("./responseTemplates/cops/copsAllow.json");
-var urds200 = require("./responseTemplates/urds/urds200.json");
-var mpds200 = require("./responseTemplates/mpds/mpds200.json");
-var reqUser = require("./responseTemplates/req-user.json");
+var copsAllow = require("../templates/cops/copsAllow.json");
+var urds200 = require("../templates/urds/urds200.json");
+var mpds200 = require("../templates/mpds/mpds200.json");
+var reqUser = require("../templates/req-user.json");
 
 function archive (req) {
 	console.log(JSON.stringify(req,null,"\t"));

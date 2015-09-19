@@ -20,7 +20,7 @@
     },
 
     "middleware": {
-        
+
         "devtools": {
             "enabled": true,
             "priority": 35,
@@ -36,7 +36,7 @@
                     }
                 ]
             }
-        },       
+        },
 
         "router": {
             "priority": 100,

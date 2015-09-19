@@ -6,13 +6,13 @@ module.exports = function babel(grunt) {
 
     return {
         options: {
-            sourceMap: false
+            sourceMap: false 
         },
         all: {
             files: [{
                 expand: true,
                 cwd: 'src',
-                src: ['**/*.js'],
+                src: ['**/*.js','**/*.jsx'],
                 dest: '.dist'              
             }]
         }

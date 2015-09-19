@@ -1,7 +1,7 @@
 "use strict";
 
 var Handlebars = require("handlebars");
-var template = require("./responseTemplates/crds/consumerCip.hbs");
+var template = require("../templates/crds/consumerCip.hbs");
 
 function convert (req) {
 	

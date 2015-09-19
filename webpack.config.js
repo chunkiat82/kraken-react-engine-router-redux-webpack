@@ -3,7 +3,6 @@ var path = require('path');
 
 module.exports = {
   entry: [
-    
     './src/public/bundle.js'
   ],
   output: {
@@ -31,11 +30,5 @@ module.exports = {
     alias: {
       'handlebars': 'handlebars/runtime.js'
     }
-  },
-  plugins: [    
-    new webpack.DefinePlugin({
-      'process.env.NODE_DEVTOOLS': JSON.stringify(process.env.NODE_DEVTOOLS),
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    })
-  ]
+  }
 };

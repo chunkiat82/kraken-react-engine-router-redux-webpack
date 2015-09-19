@@ -14,24 +14,14 @@
  \*-------------------------------------------------------------------------------------------------------------------*/
 
 'use strict';
+var config = require('../webpack.config');
 
-module.exports = function browserify(grunt) {
+module.exports = function webpack(grunt) {
 	// Load task
-	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-webpack');
 
 	// Options
 	return {
-		build: {
-            src: './.dist/public/bundle.js',
-            dest: './.build/bundle.js',
-            options: {
-                transform: ['require-globify']
-            }
-            //,
-			//files: {
-			//	'.build/js/app.js': ['public/js/app.js'],
-			//},
-			//options: {}
-		}
+		build: config
 	};
 };

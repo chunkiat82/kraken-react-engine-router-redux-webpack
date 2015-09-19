@@ -15,16 +15,26 @@
 
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function browserify(grunt) {
+    // Load task
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    // Load the project's grunt tasks from a directory
-    require('grunt-config-dir')(grunt, {
-        configDir: require('path').resolve('tasks')
-    });
+    // Options
+    return {
 
-    // Register group tasks
-    grunt.registerTask('build', [ 'jshint', 'copy', 'babel' , 'webpack']);
-    grunt.registerTask('dev', 	['watch']);
-    grunt.registerTask('test', 	[ 'jshint', 'mochacli' ]);
+        main: {
 
+            files: [
+                // includes files within path
+                {      
+                	expand:true,
+                	cwd: 'src/templates/',
+                	src: ['**'],                                  
+                    dest: '.dist/templates/'                    
+                }
+            ] 
+            
+        }
+
+    };
 };

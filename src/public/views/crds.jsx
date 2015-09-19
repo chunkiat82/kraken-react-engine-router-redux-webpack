@@ -4,7 +4,7 @@ import Layout from './layout.jsx';
 import React from 'react';
 import {Button, Input,Panel} from 'react-bootstrap';
 import serialize from 'form-serialize';
-import CRDSConvertor from '../crdsConvertor.js';
+import CRDSConvertor from '../../utils/crdsConvertor.js';
 
 var STYLES = {
     input:{
