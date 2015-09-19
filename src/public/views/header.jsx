@@ -33,14 +33,14 @@ export default class Header extends React.Component {
 					</div>
 					<div>
 					  <ul className="nav navbar-nav">
-					  	<li><a href="#">krakenJS</a></li>
-						<li><a href="#">react-engine</a></li>
-						<li><a href="#">react-router</a></li>
-						<li><a href="#">react</a></li>
-						<li><a href="#">handlerbars</a></li>
-						<li><a href="#">webpack</a></li>
-						<li><a href="#">webpack.hot</a></li>
-						<li><a href="#">babel</a></li>
+					  	<li><a target="_blank" href="http://krakenjs.com/">krakenJS</a></li>
+						<li><a target="_blank" href="https://github.com/paypal/react-engine">react-engine</a></li>
+						<li><a target="_blank" href="https://github.com/rackt/react-router">react-router</a></li>
+						<li><a target="_blank" href="https://facebook.github.io/react/">react</a></li>
+						<li><a target="_blank" href="http://handlebarsjs.com/">handlebars</a></li>
+						<li><a target="_blank" href="https://webpack.github.io/">webpack</a></li>
+						<li><a target="_blank" href="https://github.com/rackt/react-router">redux</a></li>
+						<li><a target="_blank" href="https://babeljs.io/">babel</a></li>
 					  </ul>
 					</div>
 
