@@ -22,16 +22,13 @@
     "kraken-devtools": "^1.0.0",
     "kraken-js": "^1.0.1",
     "localizr": "^0.1.6",
-    "lodash": "^3.9.2",
-    "node-jsx": "^0.13.3",
+    "lodash": "^3.9.2",    
     "qs": "^3.0.0",
     "react": "^0.13.3",
     "react-bootstrap": "^0.25.2",
     "react-engine": ">=2.2.0",
     "react-router": "^0.13.3",
-    "react-serial-forms": "^1.1.2",
-    "react-wizard": "^0.3.4",
-    "webpack": "^1.12.2",
+    "react-serial-forms": "^1.1.2",    
     "webpack-dev-middleware": "^1.2.0"
   },
   "devDependencies": {
