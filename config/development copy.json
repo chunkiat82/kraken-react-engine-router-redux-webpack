@@ -20,7 +20,7 @@
     },
 
     "middleware": {
-        
+
         "devtools": {
             "enabled": true,
             "priority": 35,
@@ -36,10 +36,28 @@
                     }
                 ]
             }
-        },       
+        },
+
+        "static": {
+            "enabled": true,
+            "priority": 40,
+            "name": "serve-static",
+            "module": {
+                "arguments": ["path:./.build"]
+            }
+        },
+
+
+        "webpack": {
+            "priority": 117,
+            "module": "path:./middleware/webpack"
+        },
+        "webpack1": {
+            "priority": 117,
+            "module": "path:./middleware/webpack1"
+        },
 
         "router": {
-            "priority": 100,
             "module": {
                 "arguments": [{
                     "directory": "path:./src/controllers"

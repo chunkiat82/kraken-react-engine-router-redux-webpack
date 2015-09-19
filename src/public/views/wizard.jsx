@@ -1,8 +1,8 @@
 import React from 'react'
-import Scenario from './scenario'
-import Cops from './cops'
-import Crds from './crds'
-import Generate from './generate'
+import Scenario from './scenario.jsx'
+import Cops from './cops.jsx'
+import Crds from './crds.jsx'
+import Generate from './generate.jsx'
 import { Grid, Row, Col, ProgressBar } from 'react-bootstrap';
 import Zip from '../zipUtil.js'
 
@@ -20,7 +20,7 @@ export default class Wizard extends React.Component {
         var temp = {};
         temp[stepName]=fields;
         this.setState(temp, function(){
-            console.log("State changed..");
+            console.log("State changed..........");
         });
     }    
  
@@ -29,6 +29,7 @@ export default class Wizard extends React.Component {
         this.setState({
             step : self.state.step + 1
         })
+        alert('setp');
     }
 
     prevStep() {

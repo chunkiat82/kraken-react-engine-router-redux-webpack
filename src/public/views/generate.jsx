@@ -1,7 +1,7 @@
 import React from 'react'
-import Scenario from './scenario'
-import Cops from './cops'
-import Crds from './crds'
+import Scenario from './scenario.jsx'
+import Cops from './cops.jsx'
+import Crds from './crds.jsx'
 import { Grid, Row, Col, ProgressBar } from 'react-bootstrap';
 
 export default class Wizard extends React.Component {

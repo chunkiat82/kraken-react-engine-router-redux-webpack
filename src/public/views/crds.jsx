@@ -1,6 +1,6 @@
 'use strict';
 
-import Layout from './layout.js';
+import Layout from './layout.jsx';
 import React from 'react';
 import {Button, Input,Panel} from 'react-bootstrap';
 import serialize from 'form-serialize';

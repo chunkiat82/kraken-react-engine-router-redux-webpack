@@ -1,21 +1,18 @@
-var webpack = require('webpack');
-var path = require('path');
+import devMiddleware from 'webpack-dev-middleware';
+import webpack from 'webpack';
+import { resolve , join} from 'path';
 
-module.exports = {
-  entry: [
-    
-    './src/public/bundle.js'
-  ],
+let compiler = webpack({
+  entry: resolve(__dirname, '..', 'src', 'public','bundle.js'),
   output: {
-    path: path.join(__dirname, '.build'),
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: '/',
+    filename:"bundle.js"
   },
   module: {
     loaders: [
       { test: /\.hbs$/, loader: "handlebars-loader" },
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         loaders: [ 'babel?optional[]=runtime&optional[]=es7.decorators&optional[]=es7.exportExtensions&stage=2' ]
       },
@@ -27,15 +24,20 @@ module.exports = {
   },  
   resolve: {
     modulesDirectories: ['node_modules', 'src'],
-    fallback: path.join(__dirname, 'node_modules'),
+    fallback: join(__dirname, 'node_modules'),
     alias: {
       'handlebars': 'handlebars/runtime.js'
     }
   },
-  plugins: [    
+  plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_DEVTOOLS': JSON.stringify(process.env.NODE_DEVTOOLS),
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     })
   ]
-};
+},(err,stats)=>{  
+  //var options ={ assets:true}
+  //console.log(JSON.stringify(stats.toJson(options)));
+});
+
+export default () => devMiddleware(compiler, {noInfo: false,quiet: false,publicPath: '/'});

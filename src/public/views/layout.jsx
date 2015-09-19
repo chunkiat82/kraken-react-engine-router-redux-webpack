@@ -16,8 +16,8 @@
 'use strict';
 
 var React = require('react');
-var Footer = require('./footer.js');
-var Header = require('./header.js');
+var Footer = require('./footer.jsx');
+var Header = require('./header.jsx');
 
 module.exports = React.createClass({
 

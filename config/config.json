@@ -21,6 +21,14 @@
 
   "middleware": {
   
+    "static": {
+      "enabled": true,
+      "priority": 40,
+      "name": "serve-static",
+      "module": {
+        "arguments": [ "path:./.build" ]
+      }
+    },
 
     "appsec": {
       "enabled": false

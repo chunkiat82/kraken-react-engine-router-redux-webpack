@@ -5,7 +5,7 @@ var React = require('react'),
 	Input = require('react-bootstrap').Input;
 var Immutable = require('immutable');
 var Panel = require('react-bootstrap').Panel;
-import CopsFields from './copsFields';
+import CopsFields from './copsFields.jsx';
 import serialize from 'form-serialize';
 import copsConverter from '../copsConverter.js';
 
