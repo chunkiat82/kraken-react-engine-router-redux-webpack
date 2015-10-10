@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react'
 import { Grid, Row, Col, ProgressBar } from 'react-bootstrap';
 import {convert} from '../../utils/handler';

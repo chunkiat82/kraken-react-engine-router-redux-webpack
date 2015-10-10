@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react'
 import Scenario from './scenario.jsx'
 import HelloWorld from './helloWorld.jsx'

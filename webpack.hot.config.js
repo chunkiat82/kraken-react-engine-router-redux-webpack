@@ -35,6 +35,9 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      '__DEVELOPMENT__': process.env.NODE_ENV !== 'production'
+    })
   ]
 };
