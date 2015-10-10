@@ -29,8 +29,7 @@ export default class Wizard extends React.Component {
         var self = this;     
         this.setState({
             step : self.state.step + 1
-        })  
-        //store.dispatch({ type: 'INCREMENT' });     
+        })              
     }
 
     prevStep() {
@@ -38,7 +37,6 @@ export default class Wizard extends React.Component {
         this.setState({
             step : self.state.step - 1
         })
-        //store.dispatch({ type: 'DECREMENT' });
     }
 
 
