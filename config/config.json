@@ -12,8 +12,8 @@
           "renderer": {
             "method": "create",
               "arguments": [{
-                  "routes": "require:./.dist/routes/react.js",
-                  "routesFilePath": "path:./.dist/routes/react.js"
+                  "routes": "require:./.dist/routes/react.jsx",
+                  "routesFilePath": "path:./.dist/routes/react.jsx"
               }]
           }
       }
