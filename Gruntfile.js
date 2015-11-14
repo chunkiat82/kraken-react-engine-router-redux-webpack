@@ -23,8 +23,7 @@ module.exports = function (grunt) {
     });
 
     // Register group tasks
-    grunt.registerTask('build', [ 'jshint', 'copy', 'babel' , 'webpack']);
-    grunt.registerTask('dev', 	['watch']);
-    grunt.registerTask('test', 	[ 'jshint', 'mochacli' ]);
+    grunt.registerTask('build', [ 'copy', 'babel' , 'webpack']);    
+    //grunt.registerTask('test', 	[ '' ]);
 
 };
