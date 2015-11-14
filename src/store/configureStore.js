@@ -1,15 +1,15 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from '../reducers';
+import DevTools from '../containers/DevTools';
 
 export default function configureStore(initialState) {
 
   let createStoreWithMiddleware;
   if (__DEVELOPMENT__) {
-    const { devTools } = require('redux-devtools');
     createStoreWithMiddleware = compose(
       applyMiddleware(thunk), // any Redux middleware, e.g. redux-thunk
-      devTools()
+      //DevTools.instrument(),
     )(createStore);
 
     if (module.hot) {
@@ -20,7 +20,7 @@ export default function configureStore(initialState) {
       });
     }
   } else {
-    createStoreWithMiddleware = applyMiddleware(...middleware)(_createStore);
+    createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
   }
 
   const store = createStoreWithMiddleware(reducer, initialState);

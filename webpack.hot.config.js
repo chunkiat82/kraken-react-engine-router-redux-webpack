@@ -13,19 +13,17 @@ module.exports = {
     },
     module: {
         loaders: [{
-            test: /\.hbs$/,
-            loader: "handlebars"
-        }, {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel',
-            query: {
-                stage: 0
+                test: /\.hbs$/,
+                loader: "handlebars"
+            }, {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel'
+            }, {
+                test: /\.json$/,
+                loader: 'json'
             }
-        }, {
-            test: /\.json$/,
-            loader: 'json'
-        }]
+        ]
     },
     resolve: {
         modulesDirectories: ['node_modules', 'src'],

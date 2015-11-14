@@ -4,8 +4,11 @@ import Layout from './layout.jsx';
 import React from 'react';
 import { Grid, Row, Col, Input, Button, Panel, Jumbotron } from 'react-bootstrap';
 import serialize from 'form-serialize';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as CounterActions from '../../actions/counter';
 
-export default class Sceneario extends React.Component {
+class Sceneario extends React.Component {
 
     constructor() {
         super();        
@@ -34,7 +37,7 @@ export default class Sceneario extends React.Component {
     }
 
     render() {        
-        const { step,fieldName, getValues, increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;        
+        const { step,fieldName, getValues, increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
         if (step == 1) {
             var nav = (
                 <Row className="show-grid">
@@ -82,3 +85,14 @@ export default class Sceneario extends React.Component {
         );
     }
 }
+function mapStateToProps(state) {
+  return {
+    counter: state.counter
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(CounterActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sceneario);

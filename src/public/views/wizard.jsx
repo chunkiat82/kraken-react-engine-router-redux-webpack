@@ -5,7 +5,7 @@ import Scenario from './scenario.jsx'
 import HelloWorld from './helloWorld.jsx'
 import { Grid, Row, Col, ProgressBar } from 'react-bootstrap';
 
-export default class Wizard extends React.Component {
+class Wizard extends React.Component {
     constructor() {
         super();        
         this.state = {step : 1}
@@ -55,3 +55,4 @@ export default class Wizard extends React.Component {
     }
 }
  
+export default Wizard;
