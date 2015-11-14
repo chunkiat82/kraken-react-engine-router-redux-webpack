@@ -16,5 +16,5 @@ KrakenJS React React-Engine React-Router Redux Infused App
 
 ### Run
 ```sh
-  npm run dev
+  npm start
 ```

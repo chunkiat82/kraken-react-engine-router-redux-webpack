@@ -1,0 +1,3 @@
+src/public/bundle.js
+lib
+**/node_modules

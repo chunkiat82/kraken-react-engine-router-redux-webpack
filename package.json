@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint":" ./node_modules/eslint/bin/eslint.js src"
   },
   "dependencies": {
     "bootstrap": "^3.3.5",
@@ -45,6 +46,9 @@
     "babel-plugin-react-transform": "^1.1.1",
     "babel-runtime": "^5.8.24",
     "css-loader": "^0.22.0",
+    "eslint": "^1.9.0",
+    "eslint-config-airbnb": "^1.0.0",
+    "eslint-plugin-react": "^3.8.0",
     "file-loader": "^0.8.4",
     "grunt": "^0.4.5",
     "grunt-babel": "^6.0.0",
