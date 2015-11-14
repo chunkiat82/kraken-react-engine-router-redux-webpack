@@ -22,8 +22,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as CounterActions from '../../actions/counter';
 
-class Layout extends React.Component {
+import DevTools from '../../containers/DevTools';
 
+class Layout extends React.Component {
 
 	render() {
 		const { step,fieldName, getValues, increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
@@ -34,6 +35,7 @@ class Layout extends React.Component {
 	      left: '50%',
 	      transform: 'translate(-50%, -50%)'
 	    };
+	    
 		return (
 			<html>
 				<head>
@@ -55,10 +57,13 @@ class Layout extends React.Component {
 							{'Click on \'close\' to dismiss this overlay'}
 						</div>
 					</PageSlider>
+					if (__DEVELOPMENT__) {
+						<DevTools />
+					}
 				  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 				  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 				  	<script src='/bundle.js'></script>
-				</body>				  				 
+				</body>		  				 
 			</html>
 		);
 	}

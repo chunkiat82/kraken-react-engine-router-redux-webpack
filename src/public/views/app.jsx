@@ -20,7 +20,6 @@ import Header from './header.jsx';
 import React from 'react';
 import {Router} from 'react-router' ;
 
-import DevTools from '../../containers/DevTools';
 import configureStore from '../../store/configureStore' ;
 import { Provider } from 'react-redux';
 const store = configureStore();
@@ -28,20 +27,10 @@ const store = configureStore();
 export default class App extends React.Component {
 	render() {
       
-        if (__DEVELOPMENT__){
-            return (                
-                <Provider store={store}>                	
-                	<Layout {...this.props}/>                	
-                </Provider>                
-            )    
-        }else{
-            return (
-                <div>
-                    <Provider store={store}>
-                       <Layout {...this.props}/>
-                    </Provider>
-                </div>
-            )
-        }        
+        return (    
+            <Provider store={store}>            
+                <Layout {...this.props} />                
+            </Provider>                
+        )      
 	}
 }

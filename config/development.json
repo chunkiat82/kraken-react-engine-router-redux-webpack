@@ -28,12 +28,7 @@
                 "name": "kraken-devtools",
                 "arguments": [
                     "path:./src/public",
-                    "path:./.build", {
-                        "copier": {
-                            "module": "kraken-devtools/plugins/copier",
-                            "files": "/favicon.ico"
-                        }
-                    }
+                    "path:./.build"
                 ]
             }
         },
