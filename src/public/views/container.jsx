@@ -16,7 +16,7 @@ export default class Container extends React.Component {
             return (
                 <div>
                     <Provider store={store}>
-                        {() => <AppContainer />}
+                        <AppContainer/>
                     </Provider>
                     <DebugPanel top right bottom>
                             <DevTools store={store} monitor={LogMonitor} />
@@ -27,7 +27,7 @@ export default class Container extends React.Component {
             return (
                 <div>
                     <Provider store={store}>
-                        {() => <AppContainer />}
+                       <AppContainer/>
                     </Provider>
                 </div>
             )

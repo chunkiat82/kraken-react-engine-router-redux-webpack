@@ -18,13 +18,15 @@
 import Layout from './layout.jsx';
 import React from 'react';
 import {Router, RouteHandler} from 'react-router' ;
+import configureStore from '../../store/configureStore' ;
+const store = configureStore();
 
 export default class App extends React.Component{
 
   render() {
     return (
 		<Layout {...this.props}>
-			<RouteHandler {...this.props}/>
+			{this.props.children}
 		</Layout>
     )
   }

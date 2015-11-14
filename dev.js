@@ -1,7 +1,10 @@
 'use strict';
+
 module.exports = function(app) {
-    require('babel/register')
-        // Step 1: Create & configure a webpack compiler
+    
+    require('babel/register');
+    
+    // Step 1: Create & configure a webpack compiler
     var webpack = require('webpack');
     var webpackConfig = require('./webpack.hot.config');
     var compiler = webpack(webpackConfig);
