@@ -11,7 +11,7 @@ import * as CounterActions from '../../actions/counter';
 class Sceneario extends React.Component {
 
     constructor() {
-        super();        
+        super();
         this.state = { serialization: "" }
         this._next = this._next.bind(this);
         this._previous = this._previous.bind(this);
@@ -19,30 +19,30 @@ class Sceneario extends React.Component {
     }
 
 
-    _next(event) {         
-        event.preventDefault();        
+    _next(event) {
+        event.preventDefault();
         this._save();
         this.props.nextStep();
     }
 
-    _previous(event) {         
-        event.preventDefault();        
+    _previous(event) {
+        event.preventDefault();
         this._save();
         this.props.prevStep();
     }
 
 
     _save(event){
-        this.props.saveValues(this.props.fieldName,this.refs.myTextInput.getValue()) 
+        this.props.saveValues(this.props.fieldName,this.refs.myTextInput.getValue())
     }
 
-    render() {        
+    render() {
         const { step,fieldName, getValues, increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
         if (step == 1) {
             var nav = (
                 <Row className="show-grid">
                     <Col xs={1} md={3}></Col>
-                    <Col xs={10} md={6}>                    
+                    <Col xs={10} md={6}>
                         <Button onClick={this._next} bsStyle="primary" bsSize="large" block>Next</Button>
                     </Col>
                     <Col xs={1} md={3}></Col>
@@ -55,22 +55,22 @@ class Sceneario extends React.Component {
                     <Col xs={5} md={3}>
                         <Button onClick={this._previous} bsStyle="primary" bsSize="large" block>Previous</Button>
                     </Col>
-                    <Col xs={5} md={3}>                    
+                    <Col xs={5} md={3}>
                         <Button onClick={this._next} bsStyle="primary" bsSize="large" block>Next</Button>
                     </Col>
                     <Col xs={1} md={3}></Col>
                 </Row>
             )
         }
-           
+
         //main render
-        return (            
+        return (
             <Grid>
-                <Jumbotron bsStyle="info">                    
+                <Jumbotron bsStyle="info">
                     <p>Simple Wizard Form - Clicked: {counter} times <Button onClick={increment}>+</Button></p>
 
                 </Jumbotron>
-                <Panel header='Data Collection' bsStyle="info"> 
+                <Panel header='Data Collection' bsStyle="info">
                     <Row className="show-grid">
                         <Col xs={1} md={3}></Col>
                         <Col xs={10} md={6}>
@@ -79,9 +79,9 @@ class Sceneario extends React.Component {
                         <Col xs={1} md={3}></Col>
                     </Row>
                     {nav}
-                </Panel>            
+                </Panel>
             </Grid>
-            
+
         );
     }
 }
