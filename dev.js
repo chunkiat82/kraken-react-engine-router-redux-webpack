@@ -2,7 +2,7 @@
 
 module.exports = function(app) {
     
-    require('babel/register');
+    require('babel-register');
     
     // Step 1: Create & configure a webpack compiler
     var webpack = require('webpack');
